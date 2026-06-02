@@ -13,6 +13,11 @@ export type CateringEstimate = {
   guestCount: number;
   billableGuestCount: number;
   perPersonRateCents: number;
+  additionalGuestRateCents: number;
+  baseGuestCount: number;
+  additionalGuestCount: number;
+  baseSubtotalCents: number;
+  additionalSubtotalCents: number;
   subtotalCents: number;
   totalCents: number;
   depositCents: number;
@@ -24,20 +29,28 @@ export function calculateCateringEstimate(guestCount: number): CateringEstimate 
     ? Math.max(0, Math.trunc(guestCount))
     : 0;
   const minimumApplied = normalizedGuestCount < MINIMUM_GUESTS;
-  const perPersonRateCents =
-    normalizedGuestCount > LARGE_GROUP_THRESHOLD
-      ? LARGE_GROUP_RATE_CENTS
-      : STANDARD_RATE_CENTS;
-  const subtotalCents = normalizedGuestCount * perPersonRateCents;
-  const totalCents = minimumApplied ? MINIMUM_TOTAL_CENTS : subtotalCents;
+  const billableGuestCount = minimumApplied ? MINIMUM_GUESTS : normalizedGuestCount;
+  const baseGuestCount = Math.min(billableGuestCount, LARGE_GROUP_THRESHOLD);
+  const additionalGuestCount = Math.max(
+    billableGuestCount - LARGE_GROUP_THRESHOLD,
+    0
+  );
+  const baseSubtotalCents = baseGuestCount * STANDARD_RATE_CENTS;
+  const additionalSubtotalCents = additionalGuestCount * LARGE_GROUP_RATE_CENTS;
+  const subtotalCents = baseSubtotalCents + additionalSubtotalCents;
 
   return {
     guestCount: normalizedGuestCount,
-    billableGuestCount: minimumApplied ? MINIMUM_GUESTS : normalizedGuestCount,
-    perPersonRateCents,
+    billableGuestCount,
+    perPersonRateCents: STANDARD_RATE_CENTS,
+    additionalGuestRateCents: LARGE_GROUP_RATE_CENTS,
+    baseGuestCount,
+    additionalGuestCount,
+    baseSubtotalCents,
+    additionalSubtotalCents,
     subtotalCents,
-    totalCents,
-    depositCents: Math.round(totalCents * DEPOSIT_PERCENTAGE),
+    totalCents: subtotalCents,
+    depositCents: Math.round(subtotalCents * DEPOSIT_PERCENTAGE),
     minimumApplied
   };
 }

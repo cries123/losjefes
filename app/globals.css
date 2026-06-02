@@ -1,17 +1,17 @@
 :root {
-  --background: #fbfaf5;
-  --surface: #ffffff;
-  --ink: #2f251d;
+  --background: #f4efe5;
+  --surface: #fffaf2;
+  --ink: #2a2119;
   --muted: #76685c;
-  --brown: #8a5a2b;
-  --brown-dark: #5e3a1d;
-  --green: #2f6b3f;
-  --green-dark: #224d2f;
-  --sand: #efe4d1;
-  --sage: #dce7d8;
+  --brown: #7a441f;
+  --brown-dark: #4c2f17;
+  --green: #245b35;
+  --green-dark: #183d27;
+  --sand: #e8d0ad;
+  --sage: #c8d9bf;
   --error: #a23a2a;
   --success: #2f6b3f;
-  --shadow: 0 24px 70px rgba(47, 37, 29, 0.12);
+  --shadow: 0 24px 70px rgba(76, 47, 23, 0.16);
 }
 
 * {
@@ -25,8 +25,9 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, rgba(220, 231, 216, 0.8), transparent 34rem),
-    linear-gradient(180deg, #ffffff 0%, var(--background) 42%);
+    radial-gradient(circle at top left, rgba(36, 91, 53, 0.22), transparent 32rem),
+    radial-gradient(circle at 85% 12%, rgba(122, 68, 31, 0.18), transparent 28rem),
+    linear-gradient(180deg, #fffaf2 0%, var(--background) 42%, #d9c9ac 100%);
   color: var(--ink);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -472,5 +473,290 @@ label span,
   .paymentActions .button,
   .heroActions .button {
     width: 100%;
+  }
+}
+
+.scrollRibbon {
+  background: linear-gradient(90deg, var(--brown-dark), var(--green-dark));
+  border-block: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff7e8;
+  display: flex;
+  gap: 2rem;
+  overflow: hidden;
+  padding: 0.9rem clamp(1rem, 5vw, 5rem);
+  position: sticky;
+  top: 4.9rem;
+  z-index: 8;
+}
+
+.scrollRibbon div {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.storySection {
+  background:
+    linear-gradient(135deg, rgba(76, 47, 23, 0.92), rgba(24, 61, 39, 0.94)),
+    radial-gradient(circle at 15% 20%, rgba(232, 208, 173, 0.28), transparent 22rem);
+  color: #fffaf2;
+}
+
+.storySection .sectionHeading p:not(.eyebrow),
+.storyCard p,
+.processPanel p,
+.menuHero p,
+.meatMenuCopy p,
+.includedPanel p {
+  color: rgba(255, 250, 242, 0.78);
+}
+
+.storyGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.storyCard {
+  background: rgba(255, 250, 242, 0.1);
+  border: 1px solid rgba(255, 250, 242, 0.18);
+  border-radius: 1.5rem;
+  min-height: 22rem;
+  padding: 1.5rem;
+}
+
+.storyCard span {
+  color: #e8d0ad;
+  font-weight: 900;
+}
+
+.storyCard h3 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 5rem 0 1rem;
+}
+
+.textLink {
+  color: #f7d58f;
+  font-weight: 900;
+}
+
+.processSection {
+  background:
+    linear-gradient(180deg, var(--sage), #fffaf2),
+    var(--sage);
+}
+
+.processPanel,
+.includedPanel {
+  background: linear-gradient(135deg, var(--green), var(--brown-dark));
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+  color: #fffaf2;
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.processPanel h2,
+.includedPanel h2 {
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+  margin: 0 0 1rem;
+  max-width: 58rem;
+}
+
+.menuHero {
+  background:
+    linear-gradient(135deg, rgba(24, 61, 39, 0.94), rgba(76, 47, 23, 0.94)),
+    radial-gradient(circle at 78% 12%, rgba(232, 208, 173, 0.28), transparent 24rem);
+  color: #fffaf2;
+  padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 5vw, 5rem);
+}
+
+.menuHero h1 {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+  margin: 0;
+  max-width: 62rem;
+}
+
+.menuHero p {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.7;
+  max-width: 46rem;
+}
+
+.meatMenuSection {
+  background: var(--background);
+}
+
+.meatMenuGrid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.meatMenuCard {
+  background: var(--surface);
+  border: 1px solid rgba(76, 47, 23, 0.16);
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.meatPhoto {
+  align-items: end;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--brown), var(--green));
+  display: flex;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+}
+
+.meatPhoto::before,
+.meatPhoto::after {
+  border-radius: 999px;
+  content: "";
+  position: absolute;
+}
+
+.meatPhoto::before {
+  background: rgba(255, 250, 242, 0.22);
+  height: 12rem;
+  right: -3rem;
+  top: -3rem;
+  width: 12rem;
+}
+
+.meatPhoto::after {
+  background: rgba(24, 61, 39, 0.28);
+  bottom: -5rem;
+  height: 15rem;
+  left: -3rem;
+  width: 15rem;
+}
+
+.meatPhoto-carne-asada {
+  background:
+    linear-gradient(135deg, rgba(76, 47, 23, 0.88), rgba(122, 68, 31, 0.72)),
+    repeating-linear-gradient(45deg, transparent 0 18px, rgba(255, 250, 242, 0.14) 18px 22px);
+}
+
+.meatPhoto-chicken {
+  background:
+    linear-gradient(135deg, rgba(232, 208, 173, 0.96), rgba(36, 91, 53, 0.76)),
+    radial-gradient(circle at 30% 40%, rgba(255, 250, 242, 0.42), transparent 10rem);
+}
+
+.meatPhoto-al-pastor {
+  background:
+    linear-gradient(135deg, rgba(122, 68, 31, 0.88), rgba(164, 83, 36, 0.82)),
+    radial-gradient(circle at 70% 22%, rgba(247, 213, 143, 0.34), transparent 9rem);
+}
+
+.meatPhoto span {
+  background: rgba(255, 250, 242, 0.9);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 0.55rem 0.8rem;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.meatMenuCopy {
+  padding: 1.5rem;
+}
+
+.meatMenuCopy h2 {
+  color: var(--brown-dark);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  letter-spacing: -0.05em;
+  margin: 0 0 0.75rem;
+}
+
+.meatMenuCopy p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.includedSection {
+  background: linear-gradient(180deg, var(--background), var(--sage));
+}
+
+.includedLists {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 2rem 0;
+}
+
+.includedLists div {
+  background: rgba(255, 250, 242, 0.12);
+  border: 1px solid rgba(255, 250, 242, 0.18);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+}
+
+.includedLists h3 {
+  margin-top: 0;
+}
+
+.includedLists ul {
+  line-height: 1.8;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(48px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: revealUp both ease-out;
+    animation-range: entry 8% cover 34%;
+    animation-timeline: view();
+  }
+
+  .scrollRibbon div {
+    animation: ribbonDrift linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes ribbonDrift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-35vw);
+  }
+}
+
+@media (max-width: 900px) {
+  .storyGrid,
+  .meatMenuGrid,
+  .includedLists {
+    grid-template-columns: 1fr;
+  }
+
+  .scrollRibbon {
+    position: static;
   }
 }

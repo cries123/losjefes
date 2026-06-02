@@ -308,7 +308,7 @@ export default function Home() {
           Los Jefes
         </a>
         <div className="navLinks">
-          <a href="#menu">Menu</a>
+          <a href="/menu">Menu</a>
           <a href="#booking">Book Catering</a>
           <a href="#contact">Contact</a>
         </div>
@@ -326,8 +326,8 @@ export default function Home() {
             <a className="button primary" href="#booking">
               Get an Estimate
             </a>
-            <a className="button secondary" href="#menu">
-              View Package
+            <a className="button secondary" href="/menu">
+              View Full Menu
             </a>
           </div>
         </div>
@@ -336,41 +336,65 @@ export default function Home() {
           <h2>4 tacos per guest</h2>
           <p>
             Served with limes, onions, cilantro, two red salsas, two green
-            salsas, rice, beans, horchata, and jamaica.
+            salsas, rice, beans, and your choice of agua fresca.
           </p>
         </div>
       </section>
 
-      <section className="section package" id="menu">
-        <div className="sectionHeading">
-          <p className="eyebrow">Catering package</p>
-          <h2>Everything your guests need, priced per person.</h2>
+      <section className="scrollRibbon" aria-label="Los Jefes highlights">
+        <div>Weekend catering</div>
+        <div>Brown & green salsa bar</div>
+        <div>Rice and beans included</div>
+        <div>Fresh aguas frescas</div>
+      </section>
+
+      <section className="section storySection">
+        <div className="sectionHeading reveal">
+          <p className="eyebrow">The Los Jefes flow</p>
+          <h2>Scroll through the weekend catering experience.</h2>
+          <p>
+            From menu selection to deposit, the site keeps guests moving through
+            a simple path while the operations team gets clean Discord alerts.
+          </p>
         </div>
-        <div className="packageGrid">
-          <article>
+        <div className="storyGrid">
+          <article className="storyCard reveal">
             <span>01</span>
-            <h3>Tacos</h3>
+            <h3>Choose your two meats</h3>
             <p>
-              Four tacos per person with your choice of exactly two meats:
-              carne asada, chicken, or al pastor.
+              Carne asada, chicken, and al pastor live on the dedicated menu
+              page with earthy placeholder photography ready for final images.
             </p>
+            <a className="textLink" href="/menu">Explore the menu</a>
           </article>
-          <article>
+          <article className="storyCard reveal">
             <span>02</span>
-            <h3>Toppings & Salsas</h3>
+            <h3>Build a live estimate</h3>
             <p>
-              Limes, onions, cilantro, two red salsas, and two green salsas are
-              included with every event.
+              The first 60 guests are priced at $25 per person. Every additional
+              guest is added at $20 per person, with the $750 minimum preserved.
             </p>
           </article>
-          <article>
+          <article className="storyCard reveal">
             <span>03</span>
-            <h3>Sides & Drinks</h3>
+            <h3>Secure or submit</h3>
             <p>
-              Rice, beans, and two complimentary aguas frescas: horchata and
-              jamaica.
+              Pay the 20% Stripe deposit now or send the reservation as pending
+              contact so the team can follow up.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section className="section processSection">
+        <div className="processPanel reveal">
+          <p className="eyebrow">What is included</p>
+          <h2>Four tacos, rice, beans, salsas, garnishes, and agua fresca.</h2>
+          <p>
+            Each package comes with limes, onions, cilantro, two red salsas, two
+            green salsas, rice and beans on the side, and a complimentary drink
+            choice of horchata or jamaica.
+          </p>
         </div>
       </section>
 
@@ -379,8 +403,9 @@ export default function Home() {
           <p className="eyebrow">Booking & estimator</p>
           <h2>Reserve a Saturday or Sunday event.</h2>
           <p>
-            Standard pricing is $25 per person. Groups over 60 guests are $20
-            per person. Events under 30 guests default to the $750 minimum.
+            Guests 1-60 are priced at $25 per person. Every additional guest
+            after 60 is added at $20 per person. Events under 30 guests still
+            default to the $750 minimum.
           </p>
         </div>
 
@@ -503,8 +528,20 @@ export default function Home() {
                 <dd>{estimate.guestCount || "Not set"}</dd>
               </div>
               <div>
-                <dt>Rate</dt>
+                <dt>Guests billed</dt>
+                <dd>{estimate.billableGuestCount}</dd>
+              </div>
+              <div>
+                <dt>First 60 guests</dt>
                 <dd>{formatCurrency(estimate.perPersonRateCents)} / person</dd>
+              </div>
+              <div>
+                <dt>Additional guests</dt>
+                <dd>{formatCurrency(estimate.additionalGuestRateCents)} / person</dd>
+              </div>
+              <div>
+                <dt>Additional guest count</dt>
+                <dd>{estimate.additionalGuestCount}</dd>
               </div>
               <div>
                 <dt>20% deposit</dt>
@@ -518,8 +555,8 @@ export default function Home() {
               </p>
             ) : (
               <p>
-                Includes tacos, toppings, salsas, rice, beans, horchata, and
-                jamaica.
+                Includes tacos, toppings, salsas, rice, beans, and a
+                complimentary choice of horchata or jamaica.
               </p>
             )}
           </aside>

@@ -7,10 +7,11 @@ alerts.
 ## Features
 
 - Weekend-only catering reservation form for Saturdays and Sundays
+- Dedicated menu page with placeholder meat photos
 - Exactly two meat selections from Carne Asada, Chicken, and Al Pastor
 - Pricing logic:
-  - $25/person standard
-  - $20/person for groups over 60
+  - $25/person for the first 60 guests
+  - $20/person for each additional guest after 60
   - $750 flat minimum when fewer than 30 guests are entered
   - 20% deposit calculation
 - Pay Now flow using Stripe Checkout

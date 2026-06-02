@@ -56,7 +56,9 @@ export function buildBookingEmbed(
       "Pricing Notes",
       estimate.minimumApplied
         ? "Minimum event size applied: flat $750 minimum."
-        : `Rate applied: ${formatCurrency(estimate.perPersonRateCents)} per person.`
+        : estimate.additionalGuestCount > 0
+          ? `First 60 guests at ${formatCurrency(estimate.perPersonRateCents)} per person; ${estimate.additionalGuestCount} additional guest(s) at ${formatCurrency(estimate.additionalGuestRateCents)} per person.`
+          : `All guests priced at ${formatCurrency(estimate.perPersonRateCents)} per person.`
     )
   ];
 
