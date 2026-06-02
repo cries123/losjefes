@@ -303,6 +303,7 @@ export default function Home() {
 
   return (
     <main>
+      <div className="scrollProgress" aria-hidden="true" />
       <nav className="nav">
         <a className="brand" href="#top" aria-label="Los Jefes home">
           Los Jefes
@@ -342,10 +343,49 @@ export default function Home() {
       </section>
 
       <section className="scrollRibbon" aria-label="Los Jefes highlights">
-        <div>Weekend catering</div>
-        <div>Brown & green salsa bar</div>
-        <div>Rice and beans included</div>
-        <div>Fresh aguas frescas</div>
+        <div className="scrollRibbonTrack">
+          <span>Weekend catering</span>
+          <span>Brown & green salsa bar</span>
+          <span>Rice and beans included</span>
+          <span>Fresh aguas frescas</span>
+          <span>Weekend catering</span>
+          <span>Brown & green salsa bar</span>
+          <span>Rice and beans included</span>
+          <span>Fresh aguas frescas</span>
+        </div>
+      </section>
+
+      <section className="scrollExperience" aria-label="Scroll through the Los Jefes experience">
+        <div className="scrollStage reveal">
+          <p className="eyebrow">Scroll feature</p>
+          <h2>The party builds as you move.</h2>
+          <p>
+            Layers, cards, and color blocks now respond to the page scroll so the
+            site feels less static and more like a guided catering experience.
+          </p>
+          <div className="scrollPlate" aria-hidden="true">
+            <span className="plateOrbit orbitOne" />
+            <span className="plateOrbit orbitTwo" />
+            <span className="plateCenter">Los Jefes</span>
+          </div>
+        </div>
+        <div className="scrollSteps">
+          <article className="scrollStep reveal">
+            <span>Step 1</span>
+            <h3>Pick the weekend</h3>
+            <p>Only Saturdays and Sundays are accepted while the calendar grows.</p>
+          </article>
+          <article className="scrollStep reveal">
+            <span>Step 2</span>
+            <h3>Choose two meats</h3>
+            <p>Carne asada, chicken, and al pastor now have their own designed menu page.</p>
+          </article>
+          <article className="scrollStep reveal">
+            <span>Step 3</span>
+            <h3>Watch the estimate</h3>
+            <p>Pricing updates live as the guest count crosses the 60-person tier.</p>
+          </article>
+        </div>
       </section>
 
       <section className="section storySection">

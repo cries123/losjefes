@@ -760,3 +760,606 @@ label span,
     position: static;
   }
 }
+
+/* Stronger scroll and menu redesign pass */
+.scrollProgress {
+  background: linear-gradient(90deg, var(--green), #e8d0ad, var(--brown));
+  height: 5px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform-origin: left center;
+  z-index: 40;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scrollProgress {
+    animation: scrollProgressGrow linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes scrollProgressGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.scrollRibbon {
+  box-shadow: 0 18px 45px rgba(24, 61, 39, 0.24);
+  padding: 0;
+  white-space: nowrap;
+}
+
+.scrollRibbonTrack {
+  align-items: center;
+  display: flex;
+  gap: 3rem;
+  min-width: max-content;
+  padding: 1rem 0;
+  animation: ribbonMarquee 18s linear infinite;
+}
+
+.scrollRibbonTrack span {
+  color: #fff7e8;
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  padding-left: 3rem;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.scrollRibbonTrack span::before {
+  background: #e8d0ad;
+  border-radius: 999px;
+  content: "";
+  height: 0.45rem;
+  left: 0.85rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.45rem;
+}
+
+@keyframes ribbonMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scrollExperience {
+  align-items: start;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(232, 208, 173, 0.42), transparent 18rem),
+    linear-gradient(135deg, #244a2e 0%, #4c2f17 100%);
+  color: #fffaf2;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  min-height: 130vh;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 5vw, 5rem);
+  position: relative;
+  overflow: clip;
+}
+
+.scrollExperience::before,
+.scrollExperience::after {
+  border: 1px solid rgba(255, 250, 242, 0.16);
+  border-radius: 999px;
+  content: "";
+  position: absolute;
+}
+
+.scrollExperience::before {
+  height: 34rem;
+  left: -12rem;
+  top: 8rem;
+  width: 34rem;
+}
+
+.scrollExperience::after {
+  bottom: -10rem;
+  height: 28rem;
+  right: -6rem;
+  width: 28rem;
+}
+
+.scrollStage {
+  align-self: start;
+  position: sticky;
+  top: 7rem;
+  z-index: 1;
+}
+
+.scrollStage h2 {
+  font-size: clamp(2.3rem, 5vw, 5rem);
+  letter-spacing: -0.07em;
+  line-height: 0.92;
+  margin: 0 0 1rem;
+}
+
+.scrollStage p:not(.eyebrow),
+.scrollStep p {
+  color: rgba(255, 250, 242, 0.78);
+  line-height: 1.7;
+}
+
+.scrollPlate {
+  align-items: center;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle, rgba(255, 250, 242, 0.18) 0 26%, transparent 27%),
+    conic-gradient(from 90deg, var(--brown), var(--green), #e8d0ad, var(--brown));
+  border: 1px solid rgba(255, 250, 242, 0.22);
+  border-radius: 999px;
+  box-shadow: inset 0 0 45px rgba(255, 250, 242, 0.16), 0 35px 90px rgba(0, 0, 0, 0.28);
+  display: grid;
+  justify-items: center;
+  margin-top: 2rem;
+  max-width: 23rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.plateCenter {
+  background: rgba(255, 250, 242, 0.92);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 1rem 1.2rem;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.plateOrbit {
+  border: 2px dashed rgba(255, 250, 242, 0.45);
+  border-radius: 999px;
+  position: absolute;
+}
+
+.orbitOne {
+  height: 75%;
+  width: 75%;
+  animation: spinPlate 12s linear infinite;
+}
+
+.orbitTwo {
+  height: 48%;
+  width: 48%;
+  animation: spinPlate 8s linear infinite reverse;
+}
+
+@keyframes spinPlate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scrollSteps {
+  display: grid;
+  gap: 1rem;
+  padding-top: 12vh;
+  position: relative;
+  z-index: 1;
+}
+
+.scrollStep {
+  background: rgba(255, 250, 242, 0.12);
+  border: 1px solid rgba(255, 250, 242, 0.2);
+  border-radius: 1.75rem;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
+  min-height: 19rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.scrollStep:nth-child(2) {
+  margin-left: 8%;
+}
+
+.scrollStep:nth-child(3) {
+  margin-left: 16%;
+}
+
+.scrollStep span {
+  color: #f7d58f;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scrollStep h3 {
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  margin: 5rem 0 1rem;
+}
+
+@supports (animation-timeline: view()) {
+  .scrollStep {
+    animation: stepSlideIn both cubic-bezier(0.16, 1, 0.3, 1);
+    animation-range: entry 10% cover 48%;
+    animation-timeline: view();
+  }
+}
+
+@keyframes stepSlideIn {
+  from {
+    opacity: 0.35;
+    transform: translateY(120px) rotate(-2deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+.menuPage {
+  background: #22180f;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: clip;
+  position: relative;
+}
+
+.menuBackdrop {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+.menuBlob,
+.menuGridPattern {
+  position: absolute;
+  will-change: transform;
+}
+
+.menuBlob {
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.62;
+}
+
+.menuBlobOne {
+  background: radial-gradient(circle, rgba(232, 208, 173, 0.72), rgba(122, 68, 31, 0.08) 68%);
+  height: 32rem;
+  left: -8rem;
+  top: 7rem;
+  width: 32rem;
+  animation: menuFloatOne 9s ease-in-out infinite alternate;
+}
+
+.menuBlobTwo {
+  background: radial-gradient(circle, rgba(36, 91, 53, 0.74), rgba(36, 91, 53, 0.08) 70%);
+  height: 38rem;
+  right: -12rem;
+  top: 15rem;
+  width: 38rem;
+  animation: menuFloatTwo 11s ease-in-out infinite alternate;
+}
+
+.menuBlobThree {
+  background: radial-gradient(circle, rgba(247, 213, 143, 0.34), rgba(76, 47, 23, 0.04) 68%);
+  bottom: -14rem;
+  height: 34rem;
+  left: 24%;
+  width: 34rem;
+  animation: menuFloatThree 13s ease-in-out infinite alternate;
+}
+
+.menuGridPattern {
+  background-image:
+    linear-gradient(rgba(255, 250, 242, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 250, 242, 0.07) 1px, transparent 1px);
+  background-size: 54px 54px;
+  inset: -10%;
+  mask-image: radial-gradient(circle at center, #000 0 38%, transparent 75%);
+  opacity: 0.7;
+  transform: rotate(-8deg);
+}
+
+@keyframes menuFloatOne {
+  to {
+    transform: translate(8vw, 5vh) scale(1.08);
+  }
+}
+
+@keyframes menuFloatTwo {
+  to {
+    transform: translate(-7vw, 8vh) scale(0.94);
+  }
+}
+
+@keyframes menuFloatThree {
+  to {
+    transform: translate(5vw, -6vh) scale(1.1);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .menuBlobOne {
+    animation: menuBlobOneScroll linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .menuBlobTwo {
+    animation: menuBlobTwoScroll linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .menuBlobThree {
+    animation: menuBlobThreeScroll linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .menuGridPattern {
+    animation: menuGridScroll linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes menuBlobOneScroll {
+  from {
+    transform: translate3d(-8vw, -4vh, 0) scale(0.9);
+  }
+  to {
+    transform: translate3d(18vw, 24vh, 0) scale(1.18) rotate(22deg);
+  }
+}
+
+@keyframes menuBlobTwoScroll {
+  from {
+    transform: translate3d(8vw, 2vh, 0) scale(1.06);
+  }
+  to {
+    transform: translate3d(-20vw, 36vh, 0) scale(0.86) rotate(-26deg);
+  }
+}
+
+@keyframes menuBlobThreeScroll {
+  from {
+    transform: translate3d(0, 18vh, 0) scale(0.92);
+  }
+  to {
+    transform: translate3d(16vw, -18vh, 0) scale(1.2) rotate(18deg);
+  }
+}
+
+@keyframes menuGridScroll {
+  from {
+    transform: translateY(-8vh) rotate(-8deg) scale(1);
+  }
+  to {
+    transform: translateY(18vh) rotate(8deg) scale(1.1);
+  }
+}
+
+.menuHero {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(24, 61, 39, 0.82), rgba(76, 47, 23, 0.78)),
+    radial-gradient(circle at 82% 22%, rgba(232, 208, 173, 0.34), transparent 28rem);
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.65fr);
+  min-height: 82vh;
+}
+
+.menuHeroCopy {
+  max-width: 64rem;
+}
+
+.menuHero .button {
+  margin-top: 1rem;
+}
+
+.menuHeroPoster {
+  align-content: end;
+  aspect-ratio: 0.78;
+  background:
+    linear-gradient(160deg, rgba(255, 250, 242, 0.16), rgba(255, 250, 242, 0.04)),
+    repeating-linear-gradient(135deg, rgba(255, 250, 242, 0.12) 0 10px, transparent 10px 24px);
+  border: 1px solid rgba(255, 250, 242, 0.24);
+  border-radius: 2.5rem;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+  display: grid;
+  justify-items: start;
+  overflow: hidden;
+  padding: 2rem;
+  position: relative;
+}
+
+.menuHeroPoster::before {
+  background: conic-gradient(from 180deg, var(--green), var(--brown), #e8d0ad, var(--green));
+  border-radius: 999px;
+  content: "";
+  height: 18rem;
+  position: absolute;
+  right: -5rem;
+  top: -5rem;
+  width: 18rem;
+  animation: spinPlate 18s linear infinite;
+}
+
+.menuHeroPoster span,
+.menuHeroPoster strong,
+.menuHeroPoster em {
+  position: relative;
+  z-index: 1;
+}
+
+.menuHeroPoster span {
+  background: rgba(255, 250, 242, 0.92);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  padding: 0.65rem 0.9rem;
+  text-transform: uppercase;
+}
+
+.menuHeroPoster strong {
+  display: block;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: -0.08em;
+  line-height: 0.85;
+  margin-top: auto;
+}
+
+.menuHeroPoster em {
+  color: rgba(255, 250, 242, 0.78);
+  font-style: normal;
+  font-weight: 800;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
+}
+
+.menuSectionHeading {
+  color: #fffaf2;
+  margin-bottom: 2rem;
+  max-width: 56rem;
+}
+
+.menuSectionHeading h2 {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.meatMenuSection {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.meatMenuGrid {
+  align-items: stretch;
+}
+
+.meatMenuCard {
+  background: rgba(255, 250, 242, 0.92);
+  transform-origin: center bottom;
+}
+
+.meatMenuCard:nth-child(2) {
+  margin-top: 3rem;
+}
+
+.meatMenuCard:nth-child(3) {
+  margin-top: 6rem;
+}
+
+.meatPhoto {
+  min-height: 18rem;
+}
+
+.meatPhoto strong {
+  color: rgba(255, 250, 242, 0.34);
+  font-size: clamp(4rem, 8vw, 6rem);
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+  margin-left: auto;
+  z-index: 1;
+}
+
+.meatTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.meatTags span {
+  background: rgba(36, 91, 53, 0.12);
+  border: 1px solid rgba(36, 91, 53, 0.18);
+  border-radius: 999px;
+  color: var(--green-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 0.45rem 0.7rem;
+}
+
+.includedSection {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.includedLists {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@supports (animation-timeline: view()) {
+  .meatMenuCard:nth-child(odd) {
+    animation: menuCardTiltLeft both cubic-bezier(0.16, 1, 0.3, 1);
+    animation-range: entry 5% cover 42%;
+    animation-timeline: view();
+  }
+
+  .meatMenuCard:nth-child(even) {
+    animation: menuCardTiltRight both cubic-bezier(0.16, 1, 0.3, 1);
+    animation-range: entry 5% cover 42%;
+    animation-timeline: view();
+  }
+}
+
+@keyframes menuCardTiltLeft {
+  from {
+    opacity: 0.25;
+    transform: translateY(120px) rotate(-7deg) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-1deg) scale(1);
+  }
+}
+
+@keyframes menuCardTiltRight {
+  from {
+    opacity: 0.25;
+    transform: translateY(120px) rotate(7deg) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(1deg) scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .scrollExperience,
+  .menuHero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .scrollStage {
+    position: relative;
+    top: auto;
+  }
+
+  .scrollStep:nth-child(2),
+  .scrollStep:nth-child(3),
+  .meatMenuCard:nth-child(2),
+  .meatMenuCard:nth-child(3) {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .includedLists {
+    grid-template-columns: 1fr;
+  }
+}
