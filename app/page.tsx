@@ -315,7 +315,14 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="hero" id="top">
+      <section className="hero mexicanHero" id="top">
+        <div className="papelBanner" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
         <div className="heroCopy">
           <p className="eyebrow">Weekend taco catering</p>
           <h1>Modern Mexican catering for gatherings with flavor.</h1>
@@ -332,8 +339,9 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="heroCard" aria-label="Los Jefes package highlight">
-          <span className="heroBadge">Included</span>
+        <div className="heroCard mexicanArchCard" aria-label="Los Jefes package highlight">
+          <div className="agaveMark" aria-hidden="true"><span /><span /><span /></div>
+          <span className="heroBadge">Taquiza Package</span>
           <h2>4 tacos per guest</h2>
           <p>
             Served with limes, onions, cilantro, two red salsas, two green
@@ -341,6 +349,8 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <div className="talaveraDivider" aria-hidden="true" />
 
       <section className="scrollRibbon" aria-label="Los Jefes highlights">
         <div className="scrollRibbonTrack">
@@ -355,7 +365,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="scrollExperience" aria-label="Scroll through the Los Jefes experience">
+      <section className="scrollExperience mexicanPatternSection" aria-label="Scroll through the Los Jefes experience">
         <div className="scrollStage reveal">
           <p className="eyebrow">Scroll feature</p>
           <h2>The party builds as you move.</h2>
@@ -388,7 +398,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section storySection">
+      <section className="section storySection mexicanPatternSection">
         <div className="sectionHeading reveal">
           <p className="eyebrow">The Los Jefes flow</p>
           <h2>Scroll through the weekend catering experience.</h2>
@@ -438,10 +448,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bookingSection" id="booking">
+      <div className="papelBanner papelBannerBottom" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
+
+      <section className="section bookingSection mexicanBooking" id="booking">
         <div className="sectionHeading">
           <p className="eyebrow">Booking & estimator</p>
-          <h2>Reserve a Saturday or Sunday event.</h2>
+          <h2>Reserve your weekend taquiza.</h2>
           <p>
             Guests 1-60 are priced at $25 per person. Every additional guest
             after 60 is added at $20 per person. Events under 30 guests still
@@ -603,7 +621,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section contactSection" id="contact">
+      <section className="section contactSection mexicanContact" id="contact">
         <div className="sectionHeading">
           <p className="eyebrow">Contact us</p>
           <h2>Have a general question?</h2>

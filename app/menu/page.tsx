@@ -28,10 +28,18 @@ export default function MenuPage() {
         </div>
       </nav>
 
-      <section className="menuHero">
+      <section className="menuHero mexicanMenuHero">
+        <div className="papelBanner menuPapel" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
         <div className="menuHeroCopy reveal">
           <p className="eyebrow">Catering menu</p>
-          <h1>Pick two meats. We bring the full taco spread.</h1>
+          <h1>Pick two meats for a proper taquiza.</h1>
           <p>
             Every catering package includes four tacos per guest, rice and beans
             on the side, fresh garnishes, red and green salsas, and a
@@ -41,14 +49,17 @@ export default function MenuPage() {
             Start Booking
           </Link>
         </div>
-        <div className="menuHeroPoster reveal" aria-hidden="true">
+        <div className="menuHeroPoster mexicanArchCard reveal" aria-hidden="true">
+          <div className="agaveMark posterAgave"><span /><span /><span /></div>
           <span>2 meats</span>
           <strong>4 tacos</strong>
           <em>rice + beans + drink</em>
         </div>
       </section>
 
-      <section className="section meatMenuSection">
+      <div className="talaveraDivider menuTileDivider" aria-hidden="true" />
+
+      <section className="section meatMenuSection mexicanMenuSection">
         <div className="menuSectionHeading reveal">
           <p className="eyebrow">Meat lineup</p>
           <h2>Three classics, styled for catering.</h2>
@@ -78,7 +89,7 @@ export default function MenuPage() {
         </div>
       </section>
 
-      <section className="section includedSection">
+      <section className="section includedSection mexicanIncluded">
         <div className="includedPanel reveal">
           <p className="eyebrow">Included with every meat choice</p>
           <h2>Not just tacos. A complete side-and-drink setup.</h2>

@@ -1363,3 +1363,350 @@ label span,
     grid-template-columns: 1fr;
   }
 }
+
+/* Mexican-inspired ornament pass */
+:root {
+  --marigold: #d99b32;
+  --clay: #a6532f;
+  --tile-blue: #276f73;
+  --cream: #fff4df;
+}
+
+.mexicanHero,
+.mexicanMenuHero,
+.mexicanBooking,
+.mexicanContact,
+.mexicanMenuSection,
+.mexicanIncluded {
+  position: relative;
+  overflow: clip;
+}
+
+.mexicanHero::before,
+.mexicanBooking::before,
+.mexicanContact::before,
+.mexicanMenuSection::before,
+.mexicanIncluded::before {
+  background-image:
+    radial-gradient(circle at 12px 12px, rgba(217, 155, 50, 0.24) 0 3px, transparent 4px),
+    linear-gradient(45deg, rgba(39, 111, 115, 0.09) 25%, transparent 25% 75%, rgba(39, 111, 115, 0.09) 75%),
+    linear-gradient(-45deg, rgba(122, 68, 31, 0.08) 25%, transparent 25% 75%, rgba(122, 68, 31, 0.08) 75%);
+  background-size: 34px 34px, 68px 68px, 68px 68px;
+  content: "";
+  inset: 0;
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.mexicanHero > *,
+.mexicanBooking > *,
+.mexicanContact > *,
+.mexicanMenuSection > *,
+.mexicanIncluded > * {
+  position: relative;
+  z-index: 1;
+}
+
+.papelBanner {
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: repeat(5, minmax(3.75rem, 1fr));
+  left: clamp(1rem, 5vw, 5rem);
+  max-width: 38rem;
+  pointer-events: none;
+  position: absolute;
+  right: clamp(1rem, 5vw, 5rem);
+  top: 1.25rem;
+  z-index: 3;
+}
+
+.papelBanner span {
+  aspect-ratio: 1.15 / 0.72;
+  background:
+    radial-gradient(circle at 50% 35%, transparent 0 0.42rem, rgba(255, 244, 223, 0.96) 0.45rem),
+    radial-gradient(circle at 22% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    radial-gradient(circle at 78% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    linear-gradient(135deg, var(--green), var(--brown));
+  border-radius: 0.45rem 0.45rem 0.85rem 0.85rem;
+  box-shadow: 0 10px 22px rgba(76, 47, 23, 0.16);
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 76% 82%, 64% 100%, 52% 82%, 40% 100%, 28% 82%, 16% 100%, 0 82%);
+  transform-origin: top center;
+}
+
+.papelBanner span:nth-child(2n) {
+  background:
+    radial-gradient(circle at 50% 35%, transparent 0 0.42rem, rgba(255, 244, 223, 0.96) 0.45rem),
+    radial-gradient(circle at 22% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    radial-gradient(circle at 78% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    linear-gradient(135deg, var(--clay), var(--marigold));
+}
+
+.papelBanner span:nth-child(3n) {
+  background:
+    radial-gradient(circle at 50% 35%, transparent 0 0.42rem, rgba(255, 244, 223, 0.96) 0.45rem),
+    radial-gradient(circle at 22% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    radial-gradient(circle at 78% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    linear-gradient(135deg, var(--tile-blue), var(--green));
+}
+
+.papelBanner span:nth-child(odd) {
+  animation: papelSwing 3.8s ease-in-out infinite alternate;
+}
+
+.papelBanner span:nth-child(even) {
+  animation: papelSwing 4.6s ease-in-out infinite alternate-reverse;
+}
+
+.papelBannerBottom {
+  bottom: -1.25rem;
+  top: auto;
+}
+
+.menuPapel {
+  max-width: none;
+  opacity: 0.98;
+}
+
+@keyframes papelSwing {
+  from {
+    transform: rotate(-1.8deg) translateY(0);
+  }
+  to {
+    transform: rotate(1.8deg) translateY(0.35rem);
+  }
+}
+
+.talaveraDivider {
+  background:
+    radial-gradient(circle at 25% 25%, var(--tile-blue) 0 8%, transparent 9%),
+    radial-gradient(circle at 75% 75%, var(--marigold) 0 8%, transparent 9%),
+    radial-gradient(circle at 75% 25%, var(--green) 0 8%, transparent 9%),
+    radial-gradient(circle at 25% 75%, var(--clay) 0 8%, transparent 9%),
+    linear-gradient(45deg, transparent 42%, rgba(76, 47, 23, 0.32) 43% 57%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, rgba(76, 47, 23, 0.32) 43% 57%, transparent 58%),
+    var(--cream);
+  background-size: 46px 46px;
+  border-block: 4px solid var(--brown-dark);
+  height: 2rem;
+  position: relative;
+  z-index: 4;
+}
+
+@supports (animation-timeline: scroll()) {
+  .talaveraDivider {
+    animation: talaveraSlide linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes talaveraSlide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 220px 0;
+  }
+}
+
+.mexicanArchCard {
+  border-radius: 9rem 9rem 2rem 2rem;
+  position: relative;
+}
+
+.mexicanArchCard::after {
+  border: 2px solid rgba(255, 244, 223, 0.42);
+  border-bottom: 0;
+  border-radius: 8rem 8rem 0 0;
+  content: "";
+  height: 42%;
+  left: 1.8rem;
+  pointer-events: none;
+  position: absolute;
+  right: 1.8rem;
+  top: 1.8rem;
+  z-index: 1;
+}
+
+.agaveMark {
+  bottom: 1.3rem;
+  display: grid;
+  height: 4.8rem;
+  left: 1.5rem;
+  place-items: end center;
+  position: absolute;
+  width: 6rem;
+  z-index: 2;
+}
+
+.agaveMark span {
+  background: linear-gradient(180deg, #7fb36b, var(--green-dark));
+  border-radius: 100% 100% 0 0;
+  bottom: 0;
+  height: 4.4rem;
+  position: absolute;
+  transform-origin: bottom center;
+  width: 1.1rem;
+}
+
+.agaveMark span:nth-child(1) {
+  transform: rotate(-34deg);
+}
+
+.agaveMark span:nth-child(2) {
+  height: 5rem;
+}
+
+.agaveMark span:nth-child(3) {
+  transform: rotate(34deg);
+}
+
+.posterAgave {
+  bottom: auto;
+  left: auto;
+  right: 1rem;
+  top: 1rem;
+}
+
+.heroCopy h1::after,
+.menuHeroCopy h1::after,
+.sectionHeading h2::after,
+.menuSectionHeading h2::after {
+  background:
+    linear-gradient(90deg, var(--marigold), var(--clay), var(--green));
+  border-radius: 999px;
+  content: "";
+  display: block;
+  height: 0.35rem;
+  margin-top: 1.1rem;
+  max-width: 9rem;
+}
+
+.heroCard::before {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(217, 155, 50, 0.38), transparent 10rem),
+    linear-gradient(135deg, rgba(47, 107, 63, 0.86), rgba(34, 77, 47, 0.9)),
+    repeating-conic-gradient(from 45deg, rgba(255, 244, 223, 0.16) 0 10deg, transparent 10deg 20deg);
+}
+
+.storyCard,
+.scrollStep,
+.estimateCard,
+.formCard,
+.contactForm,
+.meatMenuCard,
+.includedPanel,
+.processPanel {
+  border-image: linear-gradient(135deg, rgba(217, 155, 50, 0.8), rgba(36, 91, 53, 0.35), rgba(166, 83, 47, 0.72)) 1;
+}
+
+.storyCard::before,
+.scrollStep::before,
+.meatMenuCard::before {
+  background:
+    linear-gradient(90deg, var(--marigold) 0 18%, transparent 18% 27%, var(--green) 27% 45%, transparent 45% 54%, var(--clay) 54% 72%, transparent 72% 81%, var(--tile-blue) 81% 100%);
+  border-radius: 1.5rem 1.5rem 0 0;
+  content: "";
+  height: 0.42rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.storyCard,
+.scrollStep,
+.meatMenuCard {
+  position: relative;
+}
+
+.mexicanPatternSection {
+  position: relative;
+}
+
+.mexicanPatternSection::before {
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(255, 244, 223, 0.1) 0 12%, transparent 13%),
+    conic-gradient(from 45deg, transparent 0 20%, rgba(217, 155, 50, 0.13) 20% 25%, transparent 25% 45%, rgba(39, 111, 115, 0.12) 45% 50%, transparent 50% 100%);
+  background-size: 92px 92px;
+  content: "";
+  inset: 0;
+  opacity: 0.72;
+  pointer-events: none;
+  position: absolute;
+}
+
+.menuBackdrop::after {
+  background:
+    radial-gradient(circle at center, transparent 0 22%, rgba(217, 155, 50, 0.18) 23% 24%, transparent 25%),
+    conic-gradient(from 45deg, rgba(39, 111, 115, 0.16), transparent 18%, rgba(166, 83, 47, 0.14) 36%, transparent 54%, rgba(217, 155, 50, 0.12) 72%, transparent);
+  background-size: 120px 120px;
+  content: "";
+  inset: -12%;
+  opacity: 0.45;
+  position: absolute;
+  transform: rotate(8deg);
+}
+
+@supports (animation-timeline: scroll()) {
+  .menuBackdrop::after {
+    animation: menuOrnamentScroll linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes menuOrnamentScroll {
+  from {
+    background-position: 0 0;
+    transform: rotate(8deg) scale(1);
+  }
+  to {
+    background-position: 260px 180px;
+    transform: rotate(-6deg) scale(1.08);
+  }
+}
+
+.menuHeroPoster {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(217, 155, 50, 0.55), transparent 8rem),
+    linear-gradient(160deg, rgba(255, 250, 242, 0.18), rgba(255, 250, 242, 0.04)),
+    repeating-radial-gradient(circle at 50% 25%, rgba(255, 244, 223, 0.18) 0 4px, transparent 5px 18px),
+    repeating-linear-gradient(135deg, rgba(255, 250, 242, 0.12) 0 10px, transparent 10px 24px);
+}
+
+.meatPhoto::before {
+  background:
+    radial-gradient(circle, rgba(255, 244, 223, 0.28), transparent 64%),
+    conic-gradient(from 90deg, rgba(217, 155, 50, 0.18), transparent, rgba(39, 111, 115, 0.18), transparent);
+}
+
+.meatPhoto::after {
+  background:
+    linear-gradient(45deg, transparent 42%, rgba(255, 244, 223, 0.18) 43% 57%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, rgba(255, 244, 223, 0.18) 43% 57%, transparent 58%);
+  background-size: 38px 38px;
+  border-radius: 0;
+  inset: 0;
+  opacity: 0.38;
+  width: auto;
+  height: auto;
+}
+
+.includedPanel,
+.processPanel {
+  background:
+    radial-gradient(circle at 82% 20%, rgba(217, 155, 50, 0.42), transparent 13rem),
+    linear-gradient(135deg, var(--green), var(--brown-dark));
+}
+
+@media (max-width: 700px) {
+  .papelBanner {
+    grid-template-columns: repeat(3, minmax(3rem, 1fr));
+    max-width: 22rem;
+  }
+
+  .papelBanner span:nth-child(n + 4) {
+    display: none;
+  }
+}
