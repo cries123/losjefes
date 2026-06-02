@@ -23,6 +23,7 @@
   "homepage": "https://github.com/cries123/losjefes#readme",
   "dependencies": {
     "next": "^16.2.7",
+    "postcss": "^8.5.15",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "stripe": "^22.2.0"
@@ -35,5 +36,8 @@
     "eslint-config-next": "^16.2.7",
     "typescript": "^6.0.3"
   },
-  "private": "true"
+  "private": "true",
+  "overrides": {
+    "postcss": "^8.5.15"
+  }
 }
