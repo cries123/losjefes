@@ -67,7 +67,11 @@ export function validateBookingRequest(
   const eventDate = requiredString(payload, "eventDate", "Event date", errors);
   const notes = optionalString(payload, "notes");
   const guestCount = Number(payload.guestCount);
-  const paymentPreference = payload.paymentPreference;
+  const rawPaymentPreference = payload.paymentPreference;
+  const paymentPreference: PaymentPreference | null =
+    rawPaymentPreference === "pay-now" || rawPaymentPreference === "pay-later"
+      ? rawPaymentPreference
+      : null;
   const rawMeats = Array.isArray(payload.meats) ? payload.meats : [];
   const meats = rawMeats.filter(
     (meat): meat is MeatOption => typeof meat === "string" && isMeatOption(meat)
@@ -89,11 +93,11 @@ export function validateBookingRequest(
     errors.meats = `Select exactly 2 meats from ${MEAT_OPTIONS.join(", ")}.`;
   }
 
-  if (paymentPreference !== "pay-now" && paymentPreference !== "pay-later") {
+  if (!paymentPreference) {
     errors.paymentPreference = "Choose whether to pay the deposit now or later.";
   }
 
-  if (Object.keys(errors).length > 0) {
+  if (Object.keys(errors).length > 0 || !paymentPreference) {
     return { ok: false, errors };
   }
 
