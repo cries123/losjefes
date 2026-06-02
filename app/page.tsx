@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import {
   MEAT_OPTIONS,
   type MeatOption,
@@ -51,6 +51,36 @@ const initialContactForm: ContactForm = {
   message: ""
 };
 
+const idleStatus: FormStatus = {
+  type: "idle",
+  message: ""
+};
+
+function getInitialBookingStatus(): FormStatus {
+  if (typeof window === "undefined") {
+    return idleStatus;
+  }
+
+  const booking = new URLSearchParams(window.location.search).get("booking");
+
+  if (booking === "deposit-success") {
+    return {
+      type: "success",
+      message:
+        "Deposit received. Your weekend slot is being secured and our team will follow up shortly."
+    };
+  }
+
+  if (booking === "deposit-cancelled") {
+    return {
+      type: "error",
+      message: "Checkout was cancelled. You can try Pay Now again or choose Pay Later."
+    };
+  }
+
+  return idleStatus;
+}
+
 function getBookingErrors(form: BookingForm) {
   const errors: Record<string, string> = {};
 
@@ -90,14 +120,8 @@ export default function Home() {
   const [contactForm, setContactForm] = useState<ContactForm>(initialContactForm);
   const [bookingErrors, setBookingErrors] = useState<Record<string, string>>({});
   const [contactErrors, setContactErrors] = useState<Record<string, string>>({});
-  const [bookingStatus, setBookingStatus] = useState<FormStatus>({
-    type: "idle",
-    message: ""
-  });
-  const [contactStatus, setContactStatus] = useState<FormStatus>({
-    type: "idle",
-    message: ""
-  });
+  const [bookingStatus, setBookingStatus] = useState<FormStatus>(getInitialBookingStatus);
+  const [contactStatus, setContactStatus] = useState<FormStatus>(idleStatus);
 
   const estimate = useMemo(
     () => calculateCateringEstimate(bookingForm.guestCount),
@@ -105,27 +129,6 @@ export default function Home() {
   );
   const isBookingLoading = bookingStatus.type === "loading";
   const isContactLoading = contactStatus.type === "loading";
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const booking = params.get("booking");
-
-    if (booking === "deposit-success") {
-      setBookingStatus({
-        type: "success",
-        message:
-          "Deposit received. Your weekend slot is being secured and our team will follow up shortly."
-      });
-    }
-
-    if (booking === "deposit-cancelled") {
-      setBookingStatus({
-        type: "error",
-        message:
-          "Checkout was cancelled. You can try Pay Now again or choose Pay Later."
-      });
-    }
-  }, []);
 
   function updateBookingField<K extends keyof BookingForm>(
     field: K,
