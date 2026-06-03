@@ -151,6 +151,11 @@ export default function MenuPage() {
             <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer">TikTok</a>
             <span>Replace with your real handles</span>
           </div>
+          <div>
+            <h3>Service Area</h3>
+            <span>Paso Robles to Santa Barbara</span>
+            <span>Further travel available for an added expense</span>
+          </div>
         </div>
       </footer>
     </main>

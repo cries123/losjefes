@@ -702,9 +702,9 @@ export default function Home() {
           <details className="faqItem reveal">
             <summary>How far do you travel?</summary>
             <p>
-              Travel details can be confirmed after the reservation request.
-              Add the event city and venue notes so Los Jefes can follow up
-              with any travel fee or availability details.
+              Los Jefes serves Paso Robles to Santa Barbara. We can travel
+              farther for an added expense; add the event city and venue notes
+              so the team can confirm availability and any travel fee.
             </p>
           </details>
           <details className="faqItem reveal">
@@ -825,6 +825,11 @@ export default function Home() {
             <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
             <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer">TikTok</a>
             <span>Replace with your real handles</span>
+          </div>
+          <div>
+            <h3>Service Area</h3>
+            <span>Paso Robles to Santa Barbara</span>
+            <span>Further travel available for an added expense</span>
           </div>
         </div>
       </footer>
