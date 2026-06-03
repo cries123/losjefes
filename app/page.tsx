@@ -310,6 +310,8 @@ export default function Home() {
         </a>
         <div className="navLinks">
           <a href="/menu">Menu</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#faq">FAQ</a>
           <a href="#booking">Book Catering</a>
           <a href="#contact">Contact</a>
         </div>
@@ -341,6 +343,11 @@ export default function Home() {
         </div>
         <div className="heroCard mexicanArchCard" aria-label="Los Jefes package highlight">
           <div className="agaveMark" aria-hidden="true"><span /><span /><span /></div>
+          <div className="mascotMark mascotMarkHero" aria-hidden="true">
+            <span className="sombrero" />
+            <span className="face">LJ</span>
+            <span className="mustache" />
+          </div>
           <span className="heroBadge">Taquiza Package</span>
           <h2>4 tacos per guest</h2>
           <p>
@@ -621,6 +628,99 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section mascotSection" id="brand">
+        <div className="mascotPanel reveal">
+          <div className="mascotMark mascotMarkLarge" aria-hidden="true">
+            <span className="sombrero" />
+            <span className="face">LJ</span>
+            <span className="mustache" />
+          </div>
+          <div>
+            <p className="eyebrow">Mascot mark</p>
+            <h2>Meet the Los Jefes mark.</h2>
+            <p>
+              A simple jefe-inspired mascot placeholder gives the brand an icon
+              that can later become a polished logo, sticker, menu stamp, or
+              social profile image.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section gallerySection" id="gallery">
+        <div className="sectionHeading reveal">
+          <p className="eyebrow">Event gallery</p>
+          <h2>Photos will bring the taquiza to life.</h2>
+          <p>
+            These placeholders are ready for real setup shots, taco closeups,
+            salsa tables, aguas frescas, and happy guest moments once you start
+            posting.
+          </p>
+        </div>
+        <div className="galleryGrid">
+          <article className="galleryTile galleryTall reveal">
+            <span>Setup photo</span>
+            <strong>Serving station</strong>
+          </article>
+          <article className="galleryTile reveal">
+            <span>Food photo</span>
+            <strong>Tacos on the plancha</strong>
+          </article>
+          <article className="galleryTile reveal">
+            <span>Drink photo</span>
+            <strong>Aguas frescas</strong>
+          </article>
+          <article className="galleryTile reveal">
+            <span>Details photo</span>
+            <strong>Salsa bar</strong>
+          </article>
+          <article className="galleryTile galleryWide reveal">
+            <span>Event photo</span>
+            <strong>Guests enjoying Los Jefes</strong>
+          </article>
+        </div>
+      </section>
+
+      <section className="section faqSection" id="faq">
+        <div className="sectionHeading reveal">
+          <p className="eyebrow">FAQ</p>
+          <h2>Quick answers before guests book.</h2>
+        </div>
+        <div className="faqGrid">
+          <details className="faqItem reveal" open>
+            <summary>What do you need for setup?</summary>
+            <p>
+              We recommend a flat serving area with access to parking nearby.
+              Add venue notes during booking so the team can confirm the best
+              setup plan.
+            </p>
+          </details>
+          <details className="faqItem reveal">
+            <summary>How far do you travel?</summary>
+            <p>
+              Travel details can be confirmed after the reservation request.
+              Add the event city and venue notes so Los Jefes can follow up
+              with any travel fee or availability details.
+            </p>
+          </details>
+          <details className="faqItem reveal">
+            <summary>How does the deposit work?</summary>
+            <p>
+              A 20% deposit secures the weekend slot. Guests can pay now through
+              Stripe or submit as Pay Later so the team can contact them.
+            </p>
+          </details>
+          <details className="faqItem reveal">
+            <summary>What is the cancellation policy?</summary>
+            <p>
+              Add the final cancellation policy here once it is set. For now,
+              guests should contact Los Jefes as early as possible if plans
+              change.
+            </p>
+          </details>
+        </div>
+      </section>
+
       <section className="section contactSection mexicanContact" id="contact">
         <div className="sectionHeading">
           <p className="eyebrow">Contact us</p>
@@ -691,6 +791,21 @@ export default function Home() {
           </button>
         </form>
       </section>
+
+      <footer className="socialFooter">
+        <div>
+          <p className="eyebrow">Follow Los Jefes</p>
+          <h2>Social links ready for launch.</h2>
+        </div>
+        <div className="socialLinks">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+            Instagram
+          </a>
+          <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer">
+            TikTok
+          </a>
+        </div>
+      </footer>
     </main>
   );
 }

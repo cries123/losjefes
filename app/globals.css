@@ -1774,3 +1774,312 @@ label span,
   justify-self: end;
   align-self: end;
 }
+
+/* Brand additions: mascot, gallery, FAQ, social */
+.mascotSection,
+.gallerySection,
+.faqSection {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(232, 208, 173, 0.35), transparent 20rem),
+    linear-gradient(180deg, #f6efe1, var(--sage));
+  position: relative;
+  overflow: clip;
+}
+
+.mascotSection::before,
+.gallerySection::before,
+.faqSection::before {
+  background-image:
+    radial-gradient(circle at 8px 8px, rgba(36, 91, 53, 0.16) 0 2px, transparent 3px),
+    linear-gradient(45deg, rgba(122, 68, 31, 0.06) 25%, transparent 25% 75%, rgba(122, 68, 31, 0.06) 75%);
+  background-size: 36px 36px, 72px 72px;
+  content: "";
+  inset: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  position: absolute;
+}
+
+.mascotSection > *,
+.gallerySection > *,
+.faqSection > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mascotPanel {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 242, 0.94), rgba(220, 231, 216, 0.86));
+  border: 1px solid rgba(122, 68, 31, 0.18);
+  border-radius: 2.25rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(12rem, 0.45fr) minmax(0, 1fr);
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.mascotPanel h2,
+.socialFooter h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -0.06em;
+  line-height: 0.96;
+  margin: 0 0 1rem;
+}
+
+.mascotPanel p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  max-width: 48rem;
+}
+
+.mascotMark {
+  align-items: center;
+  aspect-ratio: 1;
+  display: grid;
+  justify-items: center;
+  position: relative;
+}
+
+.mascotMarkHero {
+  height: 5.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.mascotMarkLarge {
+  background:
+    radial-gradient(circle, rgba(232, 208, 173, 0.8), rgba(36, 91, 53, 0.22) 58%, transparent 59%);
+  border-radius: 999px;
+  min-width: 12rem;
+}
+
+.sombrero {
+  background: linear-gradient(135deg, var(--sand), #c8904f);
+  border: 4px solid var(--brown-dark);
+  border-radius: 999px 999px 40% 40%;
+  height: 34%;
+  position: absolute;
+  top: 14%;
+  width: 78%;
+}
+
+.sombrero::before {
+  background: var(--green);
+  border-radius: 999px 999px 0 0;
+  content: "";
+  height: 95%;
+  left: 27%;
+  position: absolute;
+  top: -52%;
+  width: 46%;
+}
+
+.face {
+  align-items: center;
+  background: #fff4df;
+  border: 4px solid var(--brown-dark);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  display: flex;
+  font-size: clamp(1.1rem, 3vw, 2.4rem);
+  font-weight: 950;
+  height: 42%;
+  justify-content: center;
+  letter-spacing: 0.06em;
+  position: relative;
+  top: 8%;
+  width: 42%;
+  z-index: 2;
+}
+
+.mustache {
+  background: var(--brown-dark);
+  border-radius: 999px 999px 40% 40%;
+  height: 8%;
+  position: absolute;
+  top: 57%;
+  width: 34%;
+  z-index: 3;
+}
+
+.galleryGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.galleryTile {
+  align-content: end;
+  background:
+    linear-gradient(160deg, rgba(36, 91, 53, 0.84), rgba(122, 68, 31, 0.72)),
+    radial-gradient(circle at 72% 18%, rgba(232, 208, 173, 0.35), transparent 12rem),
+    repeating-linear-gradient(135deg, rgba(255, 250, 242, 0.12) 0 10px, transparent 10px 24px);
+  border: 1px solid rgba(255, 250, 242, 0.28);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  color: #fffaf2;
+  display: grid;
+  min-height: 15rem;
+  overflow: hidden;
+  padding: 1.25rem;
+  position: relative;
+}
+
+.galleryTile::before {
+  background:
+    radial-gradient(circle, rgba(255, 250, 242, 0.24), transparent 64%);
+  border-radius: 999px;
+  content: "";
+  height: 12rem;
+  position: absolute;
+  right: -4rem;
+  top: -4rem;
+  width: 12rem;
+}
+
+.galleryTile span {
+  background: rgba(255, 250, 242, 0.92);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0.75rem;
+  text-transform: uppercase;
+  width: fit-content;
+  z-index: 1;
+}
+
+.galleryTile strong {
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
+  letter-spacing: -0.04em;
+  margin-top: 0.8rem;
+  z-index: 1;
+}
+
+.galleryTall {
+  grid-row: span 2;
+  min-height: 31rem;
+}
+
+.galleryWide {
+  grid-column: span 2;
+}
+
+.faqGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.faqItem {
+  background: rgba(255, 250, 242, 0.94);
+  border: 1px solid rgba(122, 68, 31, 0.16);
+  border-radius: 1.25rem;
+  box-shadow: 0 16px 42px rgba(76, 47, 23, 0.1);
+  padding: 1.2rem;
+}
+
+.faqItem summary {
+  color: var(--brown-dark);
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 950;
+}
+
+.faqItem p {
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.socialFooter {
+  align-items: center;
+  background:
+    linear-gradient(135deg, var(--brown-dark), var(--green-dark));
+  color: #fffaf2;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5rem);
+}
+
+.socialFooter .eyebrow {
+  color: #e8d0ad;
+}
+
+.socialFooter h2 {
+  margin: 0;
+}
+
+.socialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.socialLinks a {
+  background: rgba(255, 250, 242, 0.12);
+  border: 1px solid rgba(255, 250, 242, 0.24);
+  border-radius: 999px;
+  color: #fffaf2;
+  font-weight: 900;
+  padding: 0.9rem 1.2rem;
+}
+
+/* Clean up the menu included panel that felt too plain/dark. */
+.includedPanel {
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 208, 173, 0.38), transparent 16rem),
+    linear-gradient(135deg, rgba(36, 91, 53, 0.94), rgba(122, 68, 31, 0.78));
+  border: 1px solid rgba(255, 250, 242, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.includedPanel::before {
+  background-image:
+    radial-gradient(circle at 6px 6px, rgba(255, 250, 242, 0.18) 0 2px, transparent 3px),
+    linear-gradient(45deg, rgba(255, 250, 242, 0.08) 25%, transparent 25% 75%, rgba(255, 250, 242, 0.08) 75%);
+  background-size: 30px 30px, 60px 60px;
+  content: "";
+  inset: 0;
+  opacity: 0.45;
+  pointer-events: none;
+  position: absolute;
+}
+
+.includedPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.includedLists div {
+  background: rgba(255, 250, 242, 0.14);
+  border: 1px solid rgba(255, 250, 242, 0.22);
+  min-height: 8rem;
+}
+
+@media (max-width: 900px) {
+  .mascotPanel,
+  .galleryGrid,
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .galleryTall,
+  .galleryWide {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 15rem;
+  }
+
+  .socialFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
