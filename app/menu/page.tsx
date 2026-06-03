@@ -29,7 +29,7 @@ export default function MenuPage() {
       </nav>
 
       <section className="menuHero mexicanMenuHero">
-        <div className="papelBanner menuPapel" aria-hidden="true">
+        <div className="papelBanner papelBannerEdge menuPapel" aria-hidden="true">
           <span />
           <span />
           <span />
@@ -72,8 +72,9 @@ export default function MenuPage() {
                 role="img"
                 aria-label={item.photoLabel}
               >
-                <span>Photo placeholder</span>
+                <span>Photo coming soon</span>
                 <strong>{String(index + 1).padStart(2, "0")}</strong>
+                <em>Replace with real catering photo</em>
               </div>
               <div className="meatMenuCopy">
                 <p className="eyebrow">Meat option</p>

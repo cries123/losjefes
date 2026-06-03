@@ -316,7 +316,7 @@ export default function Home() {
       </nav>
 
       <section className="hero mexicanHero" id="top">
-        <div className="papelBanner" aria-hidden="true">
+        <div className="papelBanner papelBannerEdge" aria-hidden="true">
           <span />
           <span />
           <span />

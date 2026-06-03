@@ -1710,3 +1710,67 @@ label span,
     display: none;
   }
 }
+
+/* Targeted banner/placeholder cleanup */
+.papelBannerEdge {
+  inset-inline: clamp(1rem, 5vw, 5rem);
+  max-width: none;
+  opacity: 0.42;
+  top: 0.65rem;
+  z-index: 0;
+}
+
+.papelBannerEdge span {
+  max-height: 3.4rem;
+  transform: scale(0.82);
+}
+
+.heroCopy,
+.menuHeroCopy,
+.scrollStage,
+.sectionHeading {
+  position: relative;
+  z-index: 3;
+}
+
+.scrollStage .papelBanner,
+.scrollExperience .papelBanner {
+  display: none;
+}
+
+.menuPapel {
+  top: 0.75rem;
+}
+
+.meatPhoto {
+  align-content: end;
+  display: grid;
+  gap: 0.7rem;
+  justify-items: start;
+}
+
+.meatPhoto span,
+.meatPhoto em {
+  position: relative;
+  z-index: 2;
+}
+
+.meatPhoto em {
+  background: rgba(255, 250, 242, 0.82);
+  border: 1px dashed rgba(76, 47, 23, 0.32);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 0.75rem;
+  text-transform: uppercase;
+}
+
+.meatPhoto strong {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  justify-self: end;
+  align-self: end;
+}
