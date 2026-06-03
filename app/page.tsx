@@ -325,9 +325,9 @@ export default function Home() {
         </div>
         <div className="heroCopy">
           <p className="eyebrow">Weekend taco catering</p>
-          <h1>Authentic taquiza catering for gatherings with sabor.</h1>
+          <h1>Modern Mexican catering for gatherings with flavor.</h1>
           <p>
-            Los Jefes brings a taqueria-style taco spread to birthdays,
+            Los Jefes brings a clean, full-service taco package to birthdays,
             office events, family parties, and weekend celebrations.
           </p>
           <div className="heroActions">
@@ -368,10 +368,10 @@ export default function Home() {
       <section className="scrollExperience mexicanPatternSection" aria-label="Scroll through the Los Jefes experience">
         <div className="scrollStage reveal">
           <p className="eyebrow">Scroll feature</p>
-          <h2>La taquiza comes together as you scroll.</h2>
+          <h2>The party builds as you move.</h2>
           <p>
-            Papel picado, tile patterns, and taqueria cards guide guests through
-            the catering experience with warmer Mexican character.
+            Layers, cards, and color blocks now respond to the page scroll so the
+            site feels less static and more like a guided catering experience.
           </p>
           <div className="scrollPlate" aria-hidden="true">
             <span className="plateOrbit orbitOne" />
@@ -415,11 +415,11 @@ export default function Home() {
               Carne asada, chicken, and al pastor live on the dedicated menu
               page with earthy placeholder photography ready for final images.
             </p>
-            <a className="textLink" href="/menu">See the taquiza menu</a>
+            <a className="textLink" href="/menu">Explore the menu</a>
           </article>
           <article className="storyCard reveal">
             <span>02</span>
-            <h3>Build your taquiza estimate</h3>
+            <h3>Build a live estimate</h3>
             <p>
               The first 60 guests are priced at $25 per person. Every additional
               guest is added at $20 per person, with the $750 minimum preserved.
