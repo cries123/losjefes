@@ -1,0 +1,2277 @@
+:root {
+  --background: #f4efe5;
+  --surface: #fffaf2;
+  --ink: #2a2119;
+  --muted: #76685c;
+  --brown: #7a441f;
+  --brown-dark: #4c2f17;
+  --green: #245b35;
+  --green-dark: #183d27;
+  --sand: #e8d0ad;
+  --sage: #c8d9bf;
+  --error: #a23a2a;
+  --success: #2f6b3f;
+  --shadow: 0 24px 70px rgba(76, 47, 23, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(36, 91, 53, 0.22), transparent 32rem),
+    radial-gradient(circle at 85% 12%, rgba(122, 68, 31, 0.18), transparent 28rem),
+    linear-gradient(180deg, #fffaf2 0%, var(--background) 42%, #d9c9ac 100%);
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.nav {
+  align-items: center;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(138, 90, 43, 0.12);
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 1rem clamp(1rem, 4vw, 4rem);
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  color: var(--brown-dark);
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.navLinks {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.navLinks a {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.hero {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 5vw, 5rem);
+}
+
+.heroCopy h1,
+.sectionHeading h2 {
+  font-size: clamp(2.4rem, 6vw, 5.8rem);
+  letter-spacing: -0.07em;
+  line-height: 0.92;
+  margin: 0;
+}
+
+.heroCopy p {
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.7;
+  margin: 1.5rem 0 0;
+  max-width: 42rem;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.heroActions,
+.paymentActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.button {
+  align-items: center;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 3.1rem;
+  padding: 0.9rem 1.4rem;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.64;
+}
+
+.button.primary {
+  background: var(--green);
+  box-shadow: 0 14px 30px rgba(47, 107, 63, 0.22);
+  color: #ffffff;
+}
+
+.button.primary:hover:not(:disabled) {
+  background: var(--green-dark);
+}
+
+.button.secondary {
+  background: var(--sand);
+  color: var(--brown-dark);
+}
+
+.heroCard,
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(138, 90, 43, 0.14);
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.heroCard {
+  min-height: 28rem;
+  padding: 2rem;
+  position: relative;
+}
+
+.heroCard::before {
+  background:
+    linear-gradient(135deg, rgba(47, 107, 63, 0.86), rgba(34, 77, 47, 0.9)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.25' stroke-width='6'%3E%3Cpath d='M20 80c20-30 40-30 60 0s40 30 60 0'/%3E%3Cpath d='M20 30c20 30 40 30 60 0s40-30 60 0'/%3E%3Cpath d='M20 130c20-30 40-30 60 0s40 30 60 0'/%3E%3C/g%3E%3C/svg%3E");
+  border-radius: 1.5rem;
+  bottom: 1rem;
+  content: "";
+  left: 1rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.heroCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroBadge {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 999px;
+  color: var(--brown);
+  display: inline-flex;
+  font-weight: 900;
+  padding: 0.55rem 0.9rem;
+}
+
+.heroCard h2 {
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  margin: 8rem 0 1rem;
+}
+
+.heroCard p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.section {
+  padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 5vw, 5rem);
+}
+
+.sectionHeading {
+  margin-bottom: 2rem;
+  max-width: 56rem;
+}
+
+.sectionHeading h2 {
+  font-size: clamp(2rem, 5vw, 4.2rem);
+}
+
+.sectionHeading p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  max-width: 46rem;
+}
+
+.packageGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.packageGrid article {
+  background: var(--surface);
+  border: 1px solid rgba(138, 90, 43, 0.12);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+}
+
+.packageGrid span {
+  color: var(--green);
+  font-weight: 900;
+}
+
+.packageGrid h3 {
+  font-size: 1.4rem;
+  margin: 1.8rem 0 0.75rem;
+}
+
+.packageGrid p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.bookingSection {
+  background: linear-gradient(180deg, transparent 0%, var(--sage) 100%);
+}
+
+.bookingLayout {
+  align-items: start;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.6fr) minmax(20rem, 0.8fr);
+}
+
+.card {
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.formGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+label,
+fieldset {
+  border: 0;
+  color: var(--brown-dark);
+  display: grid;
+  font-size: 0.9rem;
+  font-weight: 900;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+legend {
+  color: var(--brown-dark);
+  font-size: 0.9rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+}
+
+input,
+textarea {
+  background: #fffdf9;
+  border: 1px solid rgba(138, 90, 43, 0.2);
+  border-radius: 1rem;
+  color: var(--ink);
+  outline: none;
+  padding: 0.9rem 1rem;
+  width: 100%;
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(47, 107, 63, 0.12);
+}
+
+small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+label span,
+.fieldError {
+  color: var(--error);
+  font-size: 0.82rem;
+}
+
+.meatOptions {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.checkboxCard {
+  align-items: center;
+  background: #fffdf9;
+  border: 1px solid rgba(138, 90, 43, 0.18);
+  border-radius: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0.9rem 1rem;
+}
+
+.checkboxCard input {
+  accent-color: var(--green);
+  width: auto;
+}
+
+.estimateCard {
+  position: sticky;
+  top: 6rem;
+}
+
+.estimateCard h3 {
+  color: var(--green-dark);
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  letter-spacing: -0.07em;
+  line-height: 1;
+  margin: 0 0 1.5rem;
+}
+
+.estimateCard dl {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0 0 1.2rem;
+}
+
+.estimateCard dl div {
+  align-items: center;
+  border-bottom: 1px solid rgba(138, 90, 43, 0.12);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.8rem;
+}
+
+.estimateCard dt {
+  color: var(--muted);
+}
+
+.estimateCard dd {
+  font-weight: 900;
+  margin: 0;
+}
+
+.estimateCard p,
+.minimumNote {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.minimumNote {
+  background: rgba(138, 90, 43, 0.1);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.status {
+  border-radius: 1rem;
+  font-weight: 800;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.status.loading {
+  background: rgba(138, 90, 43, 0.1);
+  color: var(--brown-dark);
+}
+
+.status.success {
+  background: rgba(47, 107, 63, 0.12);
+  color: var(--success);
+}
+
+.status.error {
+  background: rgba(162, 58, 42, 0.1);
+  color: var(--error);
+}
+
+.contactSection {
+  background: var(--background);
+}
+
+.contactForm {
+  max-width: 58rem;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .bookingLayout,
+  .packageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .estimateCard {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .navLinks {
+    flex-wrap: wrap;
+  }
+
+  .formGrid,
+  .meatOptions {
+    grid-template-columns: 1fr;
+  }
+
+  .paymentActions .button,
+  .heroActions .button {
+    width: 100%;
+  }
+}
+
+.scrollRibbon {
+  background: linear-gradient(90deg, var(--brown-dark), var(--green-dark));
+  border-block: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff7e8;
+  display: flex;
+  gap: 2rem;
+  overflow: hidden;
+  padding: 0.9rem clamp(1rem, 5vw, 5rem);
+  position: sticky;
+  top: 4.9rem;
+  z-index: 8;
+}
+
+.scrollRibbon div {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.storySection {
+  background:
+    linear-gradient(135deg, rgba(76, 47, 23, 0.92), rgba(24, 61, 39, 0.94)),
+    radial-gradient(circle at 15% 20%, rgba(232, 208, 173, 0.28), transparent 22rem);
+  color: #fffaf2;
+}
+
+.storySection .sectionHeading p:not(.eyebrow),
+.storyCard p,
+.processPanel p,
+.menuHero p,
+.meatMenuCopy p,
+.includedPanel p {
+  color: rgba(255, 250, 242, 0.78);
+}
+
+.storyGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.storyCard {
+  background: rgba(255, 250, 242, 0.1);
+  border: 1px solid rgba(255, 250, 242, 0.18);
+  border-radius: 1.5rem;
+  min-height: 22rem;
+  padding: 1.5rem;
+}
+
+.storyCard span {
+  color: #e8d0ad;
+  font-weight: 900;
+}
+
+.storyCard h3 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 5rem 0 1rem;
+}
+
+.textLink {
+  color: #f7d58f;
+  font-weight: 900;
+}
+
+.processSection {
+  background:
+    linear-gradient(180deg, var(--sage), #fffaf2),
+    var(--sage);
+}
+
+.processPanel,
+.includedPanel {
+  background: linear-gradient(135deg, var(--green), var(--brown-dark));
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+  color: #fffaf2;
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.processPanel h2,
+.includedPanel h2 {
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+  margin: 0 0 1rem;
+  max-width: 58rem;
+}
+
+.menuHero {
+  background:
+    linear-gradient(135deg, rgba(24, 61, 39, 0.94), rgba(76, 47, 23, 0.94)),
+    radial-gradient(circle at 78% 12%, rgba(232, 208, 173, 0.28), transparent 24rem);
+  color: #fffaf2;
+  padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 5vw, 5rem);
+}
+
+.menuHero h1 {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+  margin: 0;
+  max-width: 62rem;
+}
+
+.menuHero p {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.7;
+  max-width: 46rem;
+}
+
+.meatMenuSection {
+  background: var(--background);
+}
+
+.meatMenuGrid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.meatMenuCard {
+  background: var(--surface);
+  border: 1px solid rgba(76, 47, 23, 0.16);
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.meatPhoto {
+  align-items: end;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--brown), var(--green));
+  display: flex;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+}
+
+.meatPhoto::before,
+.meatPhoto::after {
+  border-radius: 999px;
+  content: "";
+  position: absolute;
+}
+
+.meatPhoto::before {
+  background: rgba(255, 250, 242, 0.22);
+  height: 12rem;
+  right: -3rem;
+  top: -3rem;
+  width: 12rem;
+}
+
+.meatPhoto::after {
+  background: rgba(24, 61, 39, 0.28);
+  bottom: -5rem;
+  height: 15rem;
+  left: -3rem;
+  width: 15rem;
+}
+
+.meatPhoto-carne-asada {
+  background:
+    linear-gradient(135deg, rgba(76, 47, 23, 0.88), rgba(122, 68, 31, 0.72)),
+    repeating-linear-gradient(45deg, transparent 0 18px, rgba(255, 250, 242, 0.14) 18px 22px);
+}
+
+.meatPhoto-chicken {
+  background:
+    linear-gradient(135deg, rgba(232, 208, 173, 0.96), rgba(36, 91, 53, 0.76)),
+    radial-gradient(circle at 30% 40%, rgba(255, 250, 242, 0.42), transparent 10rem);
+}
+
+.meatPhoto-al-pastor {
+  background:
+    linear-gradient(135deg, rgba(122, 68, 31, 0.88), rgba(164, 83, 36, 0.82)),
+    radial-gradient(circle at 70% 22%, rgba(247, 213, 143, 0.34), transparent 9rem);
+}
+
+.meatPhoto span {
+  background: rgba(255, 250, 242, 0.9);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 0.55rem 0.8rem;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.meatMenuCopy {
+  padding: 1.5rem;
+}
+
+.meatMenuCopy h2 {
+  color: var(--brown-dark);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  letter-spacing: -0.05em;
+  margin: 0 0 0.75rem;
+}
+
+.meatMenuCopy p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.includedSection {
+  background: linear-gradient(180deg, var(--background), var(--sage));
+}
+
+.includedLists {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 2rem 0;
+}
+
+.includedLists div {
+  background: rgba(255, 250, 242, 0.12);
+  border: 1px solid rgba(255, 250, 242, 0.18);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+}
+
+.includedLists h3 {
+  margin-top: 0;
+}
+
+.includedLists ul {
+  line-height: 1.8;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(48px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: revealUp both ease-out;
+    animation-range: entry 8% cover 34%;
+    animation-timeline: view();
+  }
+
+  .scrollRibbon div {
+    animation: ribbonDrift linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes ribbonDrift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-35vw);
+  }
+}
+
+@media (max-width: 900px) {
+  .storyGrid,
+  .meatMenuGrid,
+  .includedLists {
+    grid-template-columns: 1fr;
+  }
+
+  .scrollRibbon {
+    position: static;
+  }
+}
+
+/* Stronger scroll and menu redesign pass */
+.scrollProgress {
+  background: linear-gradient(90deg, var(--green), #e8d0ad, var(--brown));
+  height: 5px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform-origin: left center;
+  z-index: 40;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scrollProgress {
+    animation: scrollProgressGrow linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes scrollProgressGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.scrollRibbon {
+  box-shadow: 0 18px 45px rgba(24, 61, 39, 0.24);
+  padding: 0;
+  white-space: nowrap;
+}
+
+.scrollRibbonTrack {
+  align-items: center;
+  display: flex;
+  gap: 3rem;
+  min-width: max-content;
+  padding: 1rem 0;
+  animation: ribbonMarquee 18s linear infinite;
+}
+
+.scrollRibbonTrack span {
+  color: #fff7e8;
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  padding-left: 3rem;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.scrollRibbonTrack span::before {
+  background: #e8d0ad;
+  border-radius: 999px;
+  content: "";
+  height: 0.45rem;
+  left: 0.85rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.45rem;
+}
+
+@keyframes ribbonMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scrollExperience {
+  align-items: start;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(232, 208, 173, 0.42), transparent 18rem),
+    linear-gradient(135deg, #244a2e 0%, #4c2f17 100%);
+  color: #fffaf2;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  min-height: 130vh;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 5vw, 5rem);
+  position: relative;
+  overflow: clip;
+}
+
+.scrollExperience::before,
+.scrollExperience::after {
+  border: 1px solid rgba(255, 250, 242, 0.16);
+  border-radius: 999px;
+  content: "";
+  position: absolute;
+}
+
+.scrollExperience::before {
+  height: 34rem;
+  left: -12rem;
+  top: 8rem;
+  width: 34rem;
+}
+
+.scrollExperience::after {
+  bottom: -10rem;
+  height: 28rem;
+  right: -6rem;
+  width: 28rem;
+}
+
+.scrollStage {
+  align-self: start;
+  position: sticky;
+  top: 7rem;
+  z-index: 1;
+}
+
+.scrollStage h2 {
+  font-size: clamp(2.3rem, 5vw, 5rem);
+  letter-spacing: -0.07em;
+  line-height: 0.92;
+  margin: 0 0 1rem;
+}
+
+.scrollStage p:not(.eyebrow),
+.scrollStep p {
+  color: rgba(255, 250, 242, 0.78);
+  line-height: 1.7;
+}
+
+.scrollPlate {
+  align-items: center;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle, rgba(255, 250, 242, 0.18) 0 26%, transparent 27%),
+    conic-gradient(from 90deg, var(--brown), var(--green), #e8d0ad, var(--brown));
+  border: 1px solid rgba(255, 250, 242, 0.22);
+  border-radius: 999px;
+  box-shadow: inset 0 0 45px rgba(255, 250, 242, 0.16), 0 35px 90px rgba(0, 0, 0, 0.28);
+  display: grid;
+  justify-items: center;
+  margin-top: 2rem;
+  max-width: 23rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.plateCenter {
+  background: rgba(255, 250, 242, 0.92);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 1rem 1.2rem;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.plateOrbit {
+  border: 2px dashed rgba(255, 250, 242, 0.45);
+  border-radius: 999px;
+  position: absolute;
+}
+
+.orbitOne {
+  height: 75%;
+  width: 75%;
+  animation: spinPlate 12s linear infinite;
+}
+
+.orbitTwo {
+  height: 48%;
+  width: 48%;
+  animation: spinPlate 8s linear infinite reverse;
+}
+
+@keyframes spinPlate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scrollSteps {
+  display: grid;
+  gap: 1rem;
+  padding-top: 12vh;
+  position: relative;
+  z-index: 1;
+}
+
+.scrollStep {
+  background: rgba(255, 250, 242, 0.12);
+  border: 1px solid rgba(255, 250, 242, 0.2);
+  border-radius: 1.75rem;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
+  min-height: 19rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.scrollStep:nth-child(2) {
+  margin-left: 8%;
+}
+
+.scrollStep:nth-child(3) {
+  margin-left: 16%;
+}
+
+.scrollStep span {
+  color: #f7d58f;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scrollStep h3 {
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  margin: 5rem 0 1rem;
+}
+
+@supports (animation-timeline: view()) {
+  .scrollStep {
+    animation: stepSlideIn both cubic-bezier(0.16, 1, 0.3, 1);
+    animation-range: entry 10% cover 48%;
+    animation-timeline: view();
+  }
+}
+
+@keyframes stepSlideIn {
+  from {
+    opacity: 0.35;
+    transform: translateY(120px) rotate(-2deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+.menuPage {
+  background: #22180f;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: clip;
+  position: relative;
+}
+
+.menuBackdrop {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+.menuBlob,
+.menuGridPattern {
+  position: absolute;
+  will-change: transform;
+}
+
+.menuBlob {
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.62;
+}
+
+.menuBlobOne {
+  background: radial-gradient(circle, rgba(232, 208, 173, 0.72), rgba(122, 68, 31, 0.08) 68%);
+  height: 32rem;
+  left: -8rem;
+  top: 7rem;
+  width: 32rem;
+  animation: menuFloatOne 9s ease-in-out infinite alternate;
+}
+
+.menuBlobTwo {
+  background: radial-gradient(circle, rgba(36, 91, 53, 0.74), rgba(36, 91, 53, 0.08) 70%);
+  height: 38rem;
+  right: -12rem;
+  top: 15rem;
+  width: 38rem;
+  animation: menuFloatTwo 11s ease-in-out infinite alternate;
+}
+
+.menuBlobThree {
+  background: radial-gradient(circle, rgba(247, 213, 143, 0.34), rgba(76, 47, 23, 0.04) 68%);
+  bottom: -14rem;
+  height: 34rem;
+  left: 24%;
+  width: 34rem;
+  animation: menuFloatThree 13s ease-in-out infinite alternate;
+}
+
+.menuGridPattern {
+  background-image:
+    linear-gradient(rgba(255, 250, 242, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 250, 242, 0.07) 1px, transparent 1px);
+  background-size: 54px 54px;
+  inset: -10%;
+  mask-image: radial-gradient(circle at center, #000 0 38%, transparent 75%);
+  opacity: 0.7;
+  transform: rotate(-8deg);
+}
+
+@keyframes menuFloatOne {
+  to {
+    transform: translate(8vw, 5vh) scale(1.08);
+  }
+}
+
+@keyframes menuFloatTwo {
+  to {
+    transform: translate(-7vw, 8vh) scale(0.94);
+  }
+}
+
+@keyframes menuFloatThree {
+  to {
+    transform: translate(5vw, -6vh) scale(1.1);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .menuBlobOne {
+    animation: menuBlobOneScroll linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .menuBlobTwo {
+    animation: menuBlobTwoScroll linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .menuBlobThree {
+    animation: menuBlobThreeScroll linear both;
+    animation-timeline: scroll(root);
+  }
+
+  .menuGridPattern {
+    animation: menuGridScroll linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes menuBlobOneScroll {
+  from {
+    transform: translate3d(-8vw, -4vh, 0) scale(0.9);
+  }
+  to {
+    transform: translate3d(18vw, 24vh, 0) scale(1.18) rotate(22deg);
+  }
+}
+
+@keyframes menuBlobTwoScroll {
+  from {
+    transform: translate3d(8vw, 2vh, 0) scale(1.06);
+  }
+  to {
+    transform: translate3d(-20vw, 36vh, 0) scale(0.86) rotate(-26deg);
+  }
+}
+
+@keyframes menuBlobThreeScroll {
+  from {
+    transform: translate3d(0, 18vh, 0) scale(0.92);
+  }
+  to {
+    transform: translate3d(16vw, -18vh, 0) scale(1.2) rotate(18deg);
+  }
+}
+
+@keyframes menuGridScroll {
+  from {
+    transform: translateY(-8vh) rotate(-8deg) scale(1);
+  }
+  to {
+    transform: translateY(18vh) rotate(8deg) scale(1.1);
+  }
+}
+
+.menuHero {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(24, 61, 39, 0.82), rgba(76, 47, 23, 0.78)),
+    radial-gradient(circle at 82% 22%, rgba(232, 208, 173, 0.34), transparent 28rem);
+  display: grid;
+  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.65fr);
+  min-height: 82vh;
+}
+
+.menuHeroCopy {
+  max-width: 64rem;
+}
+
+.menuHero .button {
+  margin-top: 1rem;
+}
+
+.menuHeroPoster {
+  align-content: end;
+  aspect-ratio: 0.78;
+  background:
+    linear-gradient(160deg, rgba(255, 250, 242, 0.16), rgba(255, 250, 242, 0.04)),
+    repeating-linear-gradient(135deg, rgba(255, 250, 242, 0.12) 0 10px, transparent 10px 24px);
+  border: 1px solid rgba(255, 250, 242, 0.24);
+  border-radius: 2.5rem;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+  display: grid;
+  justify-items: start;
+  overflow: hidden;
+  padding: 2rem;
+  position: relative;
+}
+
+.menuHeroPoster::before {
+  background: conic-gradient(from 180deg, var(--green), var(--brown), #e8d0ad, var(--green));
+  border-radius: 999px;
+  content: "";
+  height: 18rem;
+  position: absolute;
+  right: -5rem;
+  top: -5rem;
+  width: 18rem;
+  animation: spinPlate 18s linear infinite;
+}
+
+.menuHeroPoster span,
+.menuHeroPoster strong,
+.menuHeroPoster em {
+  position: relative;
+  z-index: 1;
+}
+
+.menuHeroPoster span {
+  background: rgba(255, 250, 242, 0.92);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  padding: 0.65rem 0.9rem;
+  text-transform: uppercase;
+}
+
+.menuHeroPoster strong {
+  display: block;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: -0.08em;
+  line-height: 0.85;
+  margin-top: auto;
+}
+
+.menuHeroPoster em {
+  color: rgba(255, 250, 242, 0.78);
+  font-style: normal;
+  font-weight: 800;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
+}
+
+.menuSectionHeading {
+  color: #fffaf2;
+  margin-bottom: 2rem;
+  max-width: 56rem;
+}
+
+.menuSectionHeading h2 {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.meatMenuSection {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.meatMenuGrid {
+  align-items: stretch;
+}
+
+.meatMenuCard {
+  background: rgba(255, 250, 242, 0.92);
+  transform-origin: center bottom;
+}
+
+.meatMenuCard:nth-child(2) {
+  margin-top: 3rem;
+}
+
+.meatMenuCard:nth-child(3) {
+  margin-top: 6rem;
+}
+
+.meatPhoto {
+  min-height: 18rem;
+}
+
+.meatPhoto strong {
+  color: rgba(255, 250, 242, 0.34);
+  font-size: clamp(4rem, 8vw, 6rem);
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+  margin-left: auto;
+  z-index: 1;
+}
+
+.meatTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.meatTags span {
+  background: rgba(36, 91, 53, 0.12);
+  border: 1px solid rgba(36, 91, 53, 0.18);
+  border-radius: 999px;
+  color: var(--green-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 0.45rem 0.7rem;
+}
+
+.includedSection {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.includedLists {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@supports (animation-timeline: view()) {
+  .meatMenuCard:nth-child(odd) {
+    animation: menuCardTiltLeft both cubic-bezier(0.16, 1, 0.3, 1);
+    animation-range: entry 5% cover 42%;
+    animation-timeline: view();
+  }
+
+  .meatMenuCard:nth-child(even) {
+    animation: menuCardTiltRight both cubic-bezier(0.16, 1, 0.3, 1);
+    animation-range: entry 5% cover 42%;
+    animation-timeline: view();
+  }
+}
+
+@keyframes menuCardTiltLeft {
+  from {
+    opacity: 0.25;
+    transform: translateY(120px) rotate(-7deg) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-1deg) scale(1);
+  }
+}
+
+@keyframes menuCardTiltRight {
+  from {
+    opacity: 0.25;
+    transform: translateY(120px) rotate(7deg) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(1deg) scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .scrollExperience,
+  .menuHero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .scrollStage {
+    position: relative;
+    top: auto;
+  }
+
+  .scrollStep:nth-child(2),
+  .scrollStep:nth-child(3),
+  .meatMenuCard:nth-child(2),
+  .meatMenuCard:nth-child(3) {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .includedLists {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mexican-inspired ornament pass */
+:root {
+  --marigold: #d99b32;
+  --clay: #a6532f;
+  --tile-blue: #276f73;
+  --cream: #fff4df;
+}
+
+.mexicanHero,
+.mexicanMenuHero,
+.mexicanBooking,
+.mexicanContact,
+.mexicanMenuSection,
+.mexicanIncluded {
+  position: relative;
+  overflow: clip;
+}
+
+.mexicanHero::before,
+.mexicanBooking::before,
+.mexicanContact::before,
+.mexicanMenuSection::before,
+.mexicanIncluded::before {
+  background-image:
+    radial-gradient(circle at 12px 12px, rgba(217, 155, 50, 0.24) 0 3px, transparent 4px),
+    linear-gradient(45deg, rgba(39, 111, 115, 0.09) 25%, transparent 25% 75%, rgba(39, 111, 115, 0.09) 75%),
+    linear-gradient(-45deg, rgba(122, 68, 31, 0.08) 25%, transparent 25% 75%, rgba(122, 68, 31, 0.08) 75%);
+  background-size: 34px 34px, 68px 68px, 68px 68px;
+  content: "";
+  inset: 0;
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.mexicanHero > *,
+.mexicanBooking > *,
+.mexicanContact > *,
+.mexicanMenuSection > *,
+.mexicanIncluded > * {
+  position: relative;
+  z-index: 1;
+}
+
+.papelBanner {
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: repeat(5, minmax(3.75rem, 1fr));
+  left: clamp(1rem, 5vw, 5rem);
+  max-width: 38rem;
+  pointer-events: none;
+  position: absolute;
+  right: clamp(1rem, 5vw, 5rem);
+  top: 1.25rem;
+  z-index: 3;
+}
+
+.papelBanner span {
+  aspect-ratio: 1.15 / 0.72;
+  background:
+    radial-gradient(circle at 50% 35%, transparent 0 0.42rem, rgba(255, 244, 223, 0.96) 0.45rem),
+    radial-gradient(circle at 22% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    radial-gradient(circle at 78% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    linear-gradient(135deg, var(--green), var(--brown));
+  border-radius: 0.45rem 0.45rem 0.85rem 0.85rem;
+  box-shadow: 0 10px 22px rgba(76, 47, 23, 0.16);
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 88% 100%, 76% 82%, 64% 100%, 52% 82%, 40% 100%, 28% 82%, 16% 100%, 0 82%);
+  transform-origin: top center;
+}
+
+.papelBanner span:nth-child(2n) {
+  background:
+    radial-gradient(circle at 50% 35%, transparent 0 0.42rem, rgba(255, 244, 223, 0.96) 0.45rem),
+    radial-gradient(circle at 22% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    radial-gradient(circle at 78% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    linear-gradient(135deg, var(--clay), var(--marigold));
+}
+
+.papelBanner span:nth-child(3n) {
+  background:
+    radial-gradient(circle at 50% 35%, transparent 0 0.42rem, rgba(255, 244, 223, 0.96) 0.45rem),
+    radial-gradient(circle at 22% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    radial-gradient(circle at 78% 78%, transparent 0 0.32rem, rgba(255, 244, 223, 0.96) 0.35rem),
+    linear-gradient(135deg, var(--tile-blue), var(--green));
+}
+
+.papelBanner span:nth-child(odd) {
+  animation: papelSwing 3.8s ease-in-out infinite alternate;
+}
+
+.papelBanner span:nth-child(even) {
+  animation: papelSwing 4.6s ease-in-out infinite alternate-reverse;
+}
+
+.papelBannerBottom {
+  bottom: -1.25rem;
+  top: auto;
+}
+
+.menuPapel {
+  max-width: none;
+  opacity: 0.98;
+}
+
+@keyframes papelSwing {
+  from {
+    transform: rotate(-1.8deg) translateY(0);
+  }
+  to {
+    transform: rotate(1.8deg) translateY(0.35rem);
+  }
+}
+
+.talaveraDivider {
+  background:
+    radial-gradient(circle at 25% 25%, var(--tile-blue) 0 8%, transparent 9%),
+    radial-gradient(circle at 75% 75%, var(--marigold) 0 8%, transparent 9%),
+    radial-gradient(circle at 75% 25%, var(--green) 0 8%, transparent 9%),
+    radial-gradient(circle at 25% 75%, var(--clay) 0 8%, transparent 9%),
+    linear-gradient(45deg, transparent 42%, rgba(76, 47, 23, 0.32) 43% 57%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, rgba(76, 47, 23, 0.32) 43% 57%, transparent 58%),
+    var(--cream);
+  background-size: 46px 46px;
+  border-block: 4px solid var(--brown-dark);
+  height: 2rem;
+  position: relative;
+  z-index: 4;
+}
+
+@supports (animation-timeline: scroll()) {
+  .talaveraDivider {
+    animation: talaveraSlide linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes talaveraSlide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 220px 0;
+  }
+}
+
+.mexicanArchCard {
+  border-radius: 9rem 9rem 2rem 2rem;
+  position: relative;
+}
+
+.mexicanArchCard::after {
+  border: 2px solid rgba(255, 244, 223, 0.42);
+  border-bottom: 0;
+  border-radius: 8rem 8rem 0 0;
+  content: "";
+  height: 42%;
+  left: 1.8rem;
+  pointer-events: none;
+  position: absolute;
+  right: 1.8rem;
+  top: 1.8rem;
+  z-index: 1;
+}
+
+.agaveMark {
+  bottom: 1.3rem;
+  display: grid;
+  height: 4.8rem;
+  left: 1.5rem;
+  place-items: end center;
+  position: absolute;
+  width: 6rem;
+  z-index: 2;
+}
+
+.agaveMark span {
+  background: linear-gradient(180deg, #7fb36b, var(--green-dark));
+  border-radius: 100% 100% 0 0;
+  bottom: 0;
+  height: 4.4rem;
+  position: absolute;
+  transform-origin: bottom center;
+  width: 1.1rem;
+}
+
+.agaveMark span:nth-child(1) {
+  transform: rotate(-34deg);
+}
+
+.agaveMark span:nth-child(2) {
+  height: 5rem;
+}
+
+.agaveMark span:nth-child(3) {
+  transform: rotate(34deg);
+}
+
+.posterAgave {
+  bottom: auto;
+  left: auto;
+  right: 1rem;
+  top: 1rem;
+}
+
+.heroCopy h1::after,
+.menuHeroCopy h1::after,
+.sectionHeading h2::after,
+.menuSectionHeading h2::after {
+  background:
+    linear-gradient(90deg, var(--marigold), var(--clay), var(--green));
+  border-radius: 999px;
+  content: "";
+  display: block;
+  height: 0.35rem;
+  margin-top: 1.1rem;
+  max-width: 9rem;
+}
+
+.heroCard::before {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(217, 155, 50, 0.38), transparent 10rem),
+    linear-gradient(135deg, rgba(47, 107, 63, 0.86), rgba(34, 77, 47, 0.9)),
+    repeating-conic-gradient(from 45deg, rgba(255, 244, 223, 0.16) 0 10deg, transparent 10deg 20deg);
+}
+
+.storyCard,
+.scrollStep,
+.estimateCard,
+.formCard,
+.contactForm,
+.meatMenuCard,
+.includedPanel,
+.processPanel {
+  border-image: linear-gradient(135deg, rgba(217, 155, 50, 0.8), rgba(36, 91, 53, 0.35), rgba(166, 83, 47, 0.72)) 1;
+}
+
+.storyCard::before,
+.scrollStep::before,
+.meatMenuCard::before {
+  background:
+    linear-gradient(90deg, var(--marigold) 0 18%, transparent 18% 27%, var(--green) 27% 45%, transparent 45% 54%, var(--clay) 54% 72%, transparent 72% 81%, var(--tile-blue) 81% 100%);
+  border-radius: 1.5rem 1.5rem 0 0;
+  content: "";
+  height: 0.42rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.storyCard,
+.scrollStep,
+.meatMenuCard {
+  position: relative;
+}
+
+.mexicanPatternSection {
+  position: relative;
+}
+
+.mexicanPatternSection::before {
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(255, 244, 223, 0.1) 0 12%, transparent 13%),
+    conic-gradient(from 45deg, transparent 0 20%, rgba(217, 155, 50, 0.13) 20% 25%, transparent 25% 45%, rgba(39, 111, 115, 0.12) 45% 50%, transparent 50% 100%);
+  background-size: 92px 92px;
+  content: "";
+  inset: 0;
+  opacity: 0.72;
+  pointer-events: none;
+  position: absolute;
+}
+
+.menuBackdrop::after {
+  background:
+    radial-gradient(circle at center, transparent 0 22%, rgba(217, 155, 50, 0.18) 23% 24%, transparent 25%),
+    conic-gradient(from 45deg, rgba(39, 111, 115, 0.16), transparent 18%, rgba(166, 83, 47, 0.14) 36%, transparent 54%, rgba(217, 155, 50, 0.12) 72%, transparent);
+  background-size: 120px 120px;
+  content: "";
+  inset: -12%;
+  opacity: 0.45;
+  position: absolute;
+  transform: rotate(8deg);
+}
+
+@supports (animation-timeline: scroll()) {
+  .menuBackdrop::after {
+    animation: menuOrnamentScroll linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes menuOrnamentScroll {
+  from {
+    background-position: 0 0;
+    transform: rotate(8deg) scale(1);
+  }
+  to {
+    background-position: 260px 180px;
+    transform: rotate(-6deg) scale(1.08);
+  }
+}
+
+.menuHeroPoster {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(217, 155, 50, 0.55), transparent 8rem),
+    linear-gradient(160deg, rgba(255, 250, 242, 0.18), rgba(255, 250, 242, 0.04)),
+    repeating-radial-gradient(circle at 50% 25%, rgba(255, 244, 223, 0.18) 0 4px, transparent 5px 18px),
+    repeating-linear-gradient(135deg, rgba(255, 250, 242, 0.12) 0 10px, transparent 10px 24px);
+}
+
+.meatPhoto::before {
+  background:
+    radial-gradient(circle, rgba(255, 244, 223, 0.28), transparent 64%),
+    conic-gradient(from 90deg, rgba(217, 155, 50, 0.18), transparent, rgba(39, 111, 115, 0.18), transparent);
+}
+
+.meatPhoto::after {
+  background:
+    linear-gradient(45deg, transparent 42%, rgba(255, 244, 223, 0.18) 43% 57%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, rgba(255, 244, 223, 0.18) 43% 57%, transparent 58%);
+  background-size: 38px 38px;
+  border-radius: 0;
+  inset: 0;
+  opacity: 0.38;
+  width: auto;
+  height: auto;
+}
+
+.includedPanel,
+.processPanel {
+  background:
+    radial-gradient(circle at 82% 20%, rgba(217, 155, 50, 0.42), transparent 13rem),
+    linear-gradient(135deg, var(--green), var(--brown-dark));
+}
+
+@media (max-width: 700px) {
+  .papelBanner {
+    grid-template-columns: repeat(3, minmax(3rem, 1fr));
+    max-width: 22rem;
+  }
+
+  .papelBanner span:nth-child(n + 4) {
+    display: none;
+  }
+}
+
+/* Targeted banner/placeholder cleanup */
+.papelBannerEdge {
+  inset-inline: clamp(1rem, 5vw, 5rem);
+  max-width: none;
+  opacity: 0.42;
+  top: 0.65rem;
+  z-index: 0;
+}
+
+.papelBannerEdge span {
+  max-height: 3.4rem;
+  transform: scale(0.82);
+}
+
+.heroCopy,
+.menuHeroCopy,
+.scrollStage,
+.sectionHeading {
+  position: relative;
+  z-index: 3;
+}
+
+.scrollStage .papelBanner,
+.scrollExperience .papelBanner {
+  display: none;
+}
+
+.menuPapel {
+  top: 0.75rem;
+}
+
+.meatPhoto {
+  align-content: end;
+  display: grid;
+  gap: 0.7rem;
+  justify-items: start;
+}
+
+.meatPhoto span,
+.meatPhoto em {
+  position: relative;
+  z-index: 2;
+}
+
+.meatPhoto em {
+  background: rgba(255, 250, 242, 0.82);
+  border: 1px dashed rgba(76, 47, 23, 0.32);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 0.75rem;
+  text-transform: uppercase;
+}
+
+.meatPhoto strong {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  justify-self: end;
+  align-self: end;
+}
+
+/* Brand additions: mascot, gallery, FAQ, social */
+.mascotSection,
+.gallerySection,
+.faqSection {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(232, 208, 173, 0.35), transparent 20rem),
+    linear-gradient(180deg, #f6efe1, var(--sage));
+  position: relative;
+  overflow: clip;
+}
+
+.mascotSection::before,
+.gallerySection::before,
+.faqSection::before {
+  background-image:
+    radial-gradient(circle at 8px 8px, rgba(36, 91, 53, 0.16) 0 2px, transparent 3px),
+    linear-gradient(45deg, rgba(122, 68, 31, 0.06) 25%, transparent 25% 75%, rgba(122, 68, 31, 0.06) 75%);
+  background-size: 36px 36px, 72px 72px;
+  content: "";
+  inset: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  position: absolute;
+}
+
+.mascotSection > *,
+.gallerySection > *,
+.faqSection > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mascotPanel {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 242, 0.94), rgba(220, 231, 216, 0.86));
+  border: 1px solid rgba(122, 68, 31, 0.18);
+  border-radius: 2.25rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(12rem, 0.45fr) minmax(0, 1fr);
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.mascotPanel h2,
+.socialFooter h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -0.06em;
+  line-height: 0.96;
+  margin: 0 0 1rem;
+}
+
+.mascotPanel p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  max-width: 48rem;
+}
+
+.mascotMark {
+  align-items: center;
+  aspect-ratio: 1;
+  display: grid;
+  justify-items: center;
+  position: relative;
+}
+
+.mascotMarkHero {
+  height: 5.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.mascotMarkLarge {
+  background:
+    radial-gradient(circle, rgba(232, 208, 173, 0.8), rgba(36, 91, 53, 0.22) 58%, transparent 59%);
+  border-radius: 999px;
+  min-width: 12rem;
+}
+
+.sombrero {
+  background: linear-gradient(135deg, var(--sand), #c8904f);
+  border: 4px solid var(--brown-dark);
+  border-radius: 999px 999px 40% 40%;
+  height: 34%;
+  position: absolute;
+  top: 14%;
+  width: 78%;
+}
+
+.sombrero::before {
+  background: var(--green);
+  border-radius: 999px 999px 0 0;
+  content: "";
+  height: 95%;
+  left: 27%;
+  position: absolute;
+  top: -52%;
+  width: 46%;
+}
+
+.face {
+  align-items: center;
+  background: #fff4df;
+  border: 4px solid var(--brown-dark);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  display: flex;
+  font-size: clamp(1.1rem, 3vw, 2.4rem);
+  font-weight: 950;
+  height: 42%;
+  justify-content: center;
+  letter-spacing: 0.06em;
+  position: relative;
+  top: 8%;
+  width: 42%;
+  z-index: 2;
+}
+
+.mustache {
+  background: var(--brown-dark);
+  border-radius: 999px 999px 40% 40%;
+  height: 8%;
+  position: absolute;
+  top: 57%;
+  width: 34%;
+  z-index: 3;
+}
+
+.galleryGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.galleryTile {
+  align-content: end;
+  background:
+    linear-gradient(160deg, rgba(36, 91, 53, 0.84), rgba(122, 68, 31, 0.72)),
+    radial-gradient(circle at 72% 18%, rgba(232, 208, 173, 0.35), transparent 12rem),
+    repeating-linear-gradient(135deg, rgba(255, 250, 242, 0.12) 0 10px, transparent 10px 24px);
+  border: 1px solid rgba(255, 250, 242, 0.28);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  color: #fffaf2;
+  display: grid;
+  min-height: 15rem;
+  overflow: hidden;
+  padding: 1.25rem;
+  position: relative;
+}
+
+.galleryTile::before {
+  background:
+    radial-gradient(circle, rgba(255, 250, 242, 0.24), transparent 64%);
+  border-radius: 999px;
+  content: "";
+  height: 12rem;
+  position: absolute;
+  right: -4rem;
+  top: -4rem;
+  width: 12rem;
+}
+
+.galleryTile span {
+  background: rgba(255, 250, 242, 0.92);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0.75rem;
+  text-transform: uppercase;
+  width: fit-content;
+  z-index: 1;
+}
+
+.galleryTile strong {
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
+  letter-spacing: -0.04em;
+  margin-top: 0.8rem;
+  z-index: 1;
+}
+
+.galleryTall {
+  grid-row: span 2;
+  min-height: 31rem;
+}
+
+.galleryWide {
+  grid-column: span 2;
+}
+
+.faqGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.faqItem {
+  background: rgba(255, 250, 242, 0.94);
+  border: 1px solid rgba(122, 68, 31, 0.16);
+  border-radius: 1.25rem;
+  box-shadow: 0 16px 42px rgba(76, 47, 23, 0.1);
+  padding: 1.2rem;
+}
+
+.faqItem summary {
+  color: var(--brown-dark);
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 950;
+}
+
+.faqItem p {
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.socialFooter {
+  align-items: center;
+  background:
+    linear-gradient(135deg, var(--brown-dark), var(--green-dark));
+  color: #fffaf2;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 5vw, 5rem);
+}
+
+.socialFooter .eyebrow {
+  color: #e8d0ad;
+}
+
+.socialFooter h2 {
+  margin: 0;
+}
+
+.socialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.socialLinks a {
+  background: rgba(255, 250, 242, 0.12);
+  border: 1px solid rgba(255, 250, 242, 0.24);
+  border-radius: 999px;
+  color: #fffaf2;
+  font-weight: 900;
+  padding: 0.9rem 1.2rem;
+}
+
+/* Clean up the menu included panel that felt too plain/dark. */
+.includedPanel {
+  background:
+    radial-gradient(circle at 84% 18%, rgba(232, 208, 173, 0.38), transparent 16rem),
+    linear-gradient(135deg, rgba(36, 91, 53, 0.94), rgba(122, 68, 31, 0.78));
+  border: 1px solid rgba(255, 250, 242, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.includedPanel::before {
+  background-image:
+    radial-gradient(circle at 6px 6px, rgba(255, 250, 242, 0.18) 0 2px, transparent 3px),
+    linear-gradient(45deg, rgba(255, 250, 242, 0.08) 25%, transparent 25% 75%, rgba(255, 250, 242, 0.08) 75%);
+  background-size: 30px 30px, 60px 60px;
+  content: "";
+  inset: 0;
+  opacity: 0.45;
+  pointer-events: none;
+  position: absolute;
+}
+
+.includedPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.includedLists div {
+  background: rgba(255, 250, 242, 0.14);
+  border: 1px solid rgba(255, 250, 242, 0.22);
+  min-height: 8rem;
+}
+
+@media (max-width: 900px) {
+  .mascotPanel,
+  .galleryGrid,
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .galleryTall,
+  .galleryWide {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 15rem;
+  }
+
+  .socialFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Header logo and full footer */
+.brand {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.65rem;
+}
+
+.brandLogo {
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 58%, #fff4df 0 24%, transparent 25%),
+    linear-gradient(135deg, var(--green), var(--brown));
+  border: 2px solid rgba(255, 250, 242, 0.75);
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(76, 47, 23, 0.18);
+  display: inline-grid;
+  flex: 0 0 auto;
+  height: 2.55rem;
+  justify-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 2.55rem;
+}
+
+.brandLogoHat {
+  background: linear-gradient(135deg, #e8d0ad, #c8904f);
+  border: 2px solid var(--brown-dark);
+  border-radius: 999px 999px 45% 45%;
+  height: 0.75rem;
+  left: 0.34rem;
+  position: absolute;
+  top: 0.42rem;
+  width: 1.82rem;
+}
+
+.brandLogoHat::before {
+  background: var(--green-dark);
+  border-radius: 999px 999px 0 0;
+  content: "";
+  height: 0.65rem;
+  left: 0.5rem;
+  position: absolute;
+  top: -0.34rem;
+  width: 0.72rem;
+}
+
+.brandLogoFace {
+  align-items: center;
+  background: #fff4df;
+  border: 2px solid var(--brown-dark);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  display: flex;
+  font-size: 0.65rem;
+  font-weight: 950;
+  height: 1.18rem;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  position: relative;
+  top: 0.32rem;
+  width: 1.18rem;
+  z-index: 2;
+}
+
+.siteFooter {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(232, 208, 173, 0.2), transparent 18rem),
+    linear-gradient(135deg, var(--brown-dark), var(--green-dark));
+  border-top: 0.55rem solid var(--sand);
+  color: #fffaf2;
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 5vw, 5rem);
+}
+
+.footerBrand p {
+  color: rgba(255, 250, 242, 0.76);
+  line-height: 1.7;
+  margin: 1rem 0 0;
+  max-width: 24rem;
+}
+
+.footerLogo {
+  color: #fffaf2;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+.footerColumns {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.footerColumns div {
+  background: rgba(255, 250, 242, 0.08);
+  border: 1px solid rgba(255, 250, 242, 0.16);
+  border-radius: 1.25rem;
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.2rem;
+}
+
+.footerColumns h3 {
+  color: #e8d0ad;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+}
+
+.footerColumns a,
+.footerColumns span {
+  color: rgba(255, 250, 242, 0.82);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.footerColumns a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .siteFooter,
+  .footerColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .brandLogo {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+}
+
+/* Dedicated page navigation cleanup */
+.nav {
+  gap: 1rem;
+}
+
+.navLinks {
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.navLinks::-webkit-scrollbar {
+  display: none;
+}
+
+.navLinks a {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.pageSection {
+  min-height: 72vh;
+}
+
+.sectionHeading h1 {
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  letter-spacing: -0.07em;
+  line-height: 0.92;
+  margin: 0;
+}
+
+.sectionHeading h1::after {
+  background: linear-gradient(90deg, var(--green), var(--brown));
+  border-radius: 999px;
+  content: "";
+  display: block;
+  height: 0.32rem;
+  margin-top: 1rem;
+  max-width: 8rem;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    align-items: stretch;
+  }
+
+  .navLinks {
+    justify-content: flex-start;
+    max-width: 100%;
+    padding-bottom: 0.2rem;
+  }
+}
