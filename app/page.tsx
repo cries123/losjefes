@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import { SiteFooter, SiteNav } from "@/components/SiteChrome";
 import {
   MEAT_OPTIONS,
   type MeatOption,
@@ -304,22 +305,7 @@ export default function Home() {
   return (
     <main>
       <div className="scrollProgress" aria-hidden="true" />
-      <nav className="nav">
-        <a className="brand" href="#top" aria-label="Los Jefes home">
-          <span className="brandLogo" aria-hidden="true">
-            <span className="brandLogoHat" />
-            <span className="brandLogoFace">LJ</span>
-          </span>
-          <span>Los Jefes</span>
-        </a>
-        <div className="navLinks">
-          <a href="/menu">Menu</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#faq">FAQ</a>
-          <a href="#booking">Book Catering</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+      <SiteNav />
 
       <section className="hero mexicanHero" id="top">
         <div className="papelBanner papelBannerEdge" aria-hidden="true">
@@ -337,7 +323,7 @@ export default function Home() {
             office events, family parties, and weekend celebrations.
           </p>
           <div className="heroActions">
-            <a className="button primary" href="#booking">
+            <a className="button primary" href="/booking">
               Get an Estimate
             </a>
             <a className="button secondary" href="/menu">
@@ -796,43 +782,7 @@ export default function Home() {
         </form>
       </section>
 
-      <footer className="siteFooter">
-        <div className="footerBrand">
-          <a className="brand footerLogo" href="#top" aria-label="Los Jefes home">
-            <span className="brandLogo" aria-hidden="true">
-              <span className="brandLogoHat" />
-              <span className="brandLogoFace">LJ</span>
-            </span>
-            <span>Los Jefes</span>
-          </a>
-          <p>Weekend taquiza catering with tacos, rice, beans, salsas, and aguas frescas.</p>
-        </div>
-        <div className="footerColumns">
-          <div>
-            <h3>Explore</h3>
-            <a href="/menu">Menu</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#faq">FAQ</a>
-          </div>
-          <div>
-            <h3>Book</h3>
-            <a href="#booking">Catering estimator</a>
-            <a href="#contact">Contact us</a>
-            <span>Saturday & Sunday events</span>
-          </div>
-          <div>
-            <h3>Social</h3>
-            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer">TikTok</a>
-            <span>Replace with your real handles</span>
-          </div>
-          <div>
-            <h3>Service Area</h3>
-            <span>Paso Robles to Santa Barbara</span>
-            <span>Further travel available for an added expense</span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

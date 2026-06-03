@@ -2221,3 +2221,57 @@ label span,
     width: 2.25rem;
   }
 }
+
+/* Dedicated page navigation cleanup */
+.nav {
+  gap: 1rem;
+}
+
+.navLinks {
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.navLinks::-webkit-scrollbar {
+  display: none;
+}
+
+.navLinks a {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.pageSection {
+  min-height: 72vh;
+}
+
+.sectionHeading h1 {
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  letter-spacing: -0.07em;
+  line-height: 0.92;
+  margin: 0;
+}
+
+.sectionHeading h1::after {
+  background: linear-gradient(90deg, var(--green), var(--brown));
+  border-radius: 999px;
+  content: "";
+  display: block;
+  height: 0.32rem;
+  margin-top: 1rem;
+  max-width: 8rem;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    align-items: stretch;
+  }
+
+  .navLinks {
+    justify-content: flex-start;
+    max-width: 100%;
+    padding-bottom: 0.2rem;
+  }
+}
