@@ -39,7 +39,7 @@ export default function MenuPage() {
         </div>
         <div className="menuHeroCopy reveal">
           <p className="eyebrow">Catering menu</p>
-          <h1>Pick two meats for a proper taquiza.</h1>
+          <h1>Choose the meats for your taquiza.</h1>
           <p>
             Every catering package includes four tacos per guest, rice and beans
             on the side, fresh garnishes, red and green salsas, and a
@@ -62,7 +62,7 @@ export default function MenuPage() {
       <section className="section meatMenuSection mexicanMenuSection">
         <div className="menuSectionHeading reveal">
           <p className="eyebrow">Meat lineup</p>
-          <h2>Three classics, styled for catering.</h2>
+          <h2>Three taqueria classics for your taco spread.</h2>
         </div>
         <div className="meatMenuGrid">
           {MEAT_MENU_ITEMS.map((item, index) => (
