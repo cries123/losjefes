@@ -2083,3 +2083,141 @@ label span,
     flex-direction: column;
   }
 }
+
+/* Header logo and full footer */
+.brand {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.65rem;
+}
+
+.brandLogo {
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 58%, #fff4df 0 24%, transparent 25%),
+    linear-gradient(135deg, var(--green), var(--brown));
+  border: 2px solid rgba(255, 250, 242, 0.75);
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(76, 47, 23, 0.18);
+  display: inline-grid;
+  flex: 0 0 auto;
+  height: 2.55rem;
+  justify-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 2.55rem;
+}
+
+.brandLogoHat {
+  background: linear-gradient(135deg, #e8d0ad, #c8904f);
+  border: 2px solid var(--brown-dark);
+  border-radius: 999px 999px 45% 45%;
+  height: 0.75rem;
+  left: 0.34rem;
+  position: absolute;
+  top: 0.42rem;
+  width: 1.82rem;
+}
+
+.brandLogoHat::before {
+  background: var(--green-dark);
+  border-radius: 999px 999px 0 0;
+  content: "";
+  height: 0.65rem;
+  left: 0.5rem;
+  position: absolute;
+  top: -0.34rem;
+  width: 0.72rem;
+}
+
+.brandLogoFace {
+  align-items: center;
+  background: #fff4df;
+  border: 2px solid var(--brown-dark);
+  border-radius: 999px;
+  color: var(--brown-dark);
+  display: flex;
+  font-size: 0.65rem;
+  font-weight: 950;
+  height: 1.18rem;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  position: relative;
+  top: 0.32rem;
+  width: 1.18rem;
+  z-index: 2;
+}
+
+.siteFooter {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(232, 208, 173, 0.2), transparent 18rem),
+    linear-gradient(135deg, var(--brown-dark), var(--green-dark));
+  border-top: 0.55rem solid var(--sand);
+  color: #fffaf2;
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 5vw, 5rem);
+}
+
+.footerBrand p {
+  color: rgba(255, 250, 242, 0.76);
+  line-height: 1.7;
+  margin: 1rem 0 0;
+  max-width: 24rem;
+}
+
+.footerLogo {
+  color: #fffaf2;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+.footerColumns {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.footerColumns div {
+  background: rgba(255, 250, 242, 0.08);
+  border: 1px solid rgba(255, 250, 242, 0.16);
+  border-radius: 1.25rem;
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.2rem;
+}
+
+.footerColumns h3 {
+  color: #e8d0ad;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+}
+
+.footerColumns a,
+.footerColumns span {
+  color: rgba(255, 250, 242, 0.82);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.footerColumns a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .siteFooter,
+  .footerColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .brandLogo {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+}

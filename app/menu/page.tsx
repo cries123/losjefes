@@ -19,7 +19,11 @@ export default function MenuPage() {
 
       <nav className="nav menuNav">
         <Link className="brand" href="/" aria-label="Los Jefes home">
-          Los Jefes
+          <span className="brandLogo" aria-hidden="true">
+            <span className="brandLogoHat" />
+            <span className="brandLogoFace">LJ</span>
+          </span>
+          <span>Los Jefes</span>
         </Link>
         <div className="navLinks">
           <Link href="/">Home</Link>
@@ -117,6 +121,38 @@ export default function MenuPage() {
           </Link>
         </div>
       </section>
+      <footer className="siteFooter">
+        <div className="footerBrand">
+          <Link className="brand footerLogo" href="/" aria-label="Los Jefes home">
+            <span className="brandLogo" aria-hidden="true">
+              <span className="brandLogoHat" />
+              <span className="brandLogoFace">LJ</span>
+            </span>
+            <span>Los Jefes</span>
+          </Link>
+          <p>Save this page for meat options, sides, drinks, and future catering photos.</p>
+        </div>
+        <div className="footerColumns">
+          <div>
+            <h3>Explore</h3>
+            <Link href="/">Home</Link>
+            <Link href="/#gallery">Gallery</Link>
+            <Link href="/#faq">FAQ</Link>
+          </div>
+          <div>
+            <h3>Book</h3>
+            <Link href="/#booking">Catering estimator</Link>
+            <Link href="/#contact">Contact us</Link>
+            <span>Saturday & Sunday events</span>
+          </div>
+          <div>
+            <h3>Social</h3>
+            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer">TikTok</a>
+            <span>Replace with your real handles</span>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

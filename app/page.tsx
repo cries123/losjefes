@@ -306,7 +306,11 @@ export default function Home() {
       <div className="scrollProgress" aria-hidden="true" />
       <nav className="nav">
         <a className="brand" href="#top" aria-label="Los Jefes home">
-          Los Jefes
+          <span className="brandLogo" aria-hidden="true">
+            <span className="brandLogoHat" />
+            <span className="brandLogoFace">LJ</span>
+          </span>
+          <span>Los Jefes</span>
         </a>
         <div className="navLinks">
           <a href="/menu">Menu</a>
@@ -792,18 +796,36 @@ export default function Home() {
         </form>
       </section>
 
-      <footer className="socialFooter">
-        <div>
-          <p className="eyebrow">Follow Los Jefes</p>
-          <h2>Social links ready for launch.</h2>
+      <footer className="siteFooter">
+        <div className="footerBrand">
+          <a className="brand footerLogo" href="#top" aria-label="Los Jefes home">
+            <span className="brandLogo" aria-hidden="true">
+              <span className="brandLogoHat" />
+              <span className="brandLogoFace">LJ</span>
+            </span>
+            <span>Los Jefes</span>
+          </a>
+          <p>Weekend taquiza catering with tacos, rice, beans, salsas, and aguas frescas.</p>
         </div>
-        <div className="socialLinks">
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-            Instagram
-          </a>
-          <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer">
-            TikTok
-          </a>
+        <div className="footerColumns">
+          <div>
+            <h3>Explore</h3>
+            <a href="/menu">Menu</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div>
+            <h3>Book</h3>
+            <a href="#booking">Catering estimator</a>
+            <a href="#contact">Contact us</a>
+            <span>Saturday & Sunday events</span>
+          </div>
+          <div>
+            <h3>Social</h3>
+            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer">TikTok</a>
+            <span>Replace with your real handles</span>
+          </div>
         </div>
       </footer>
     </main>
